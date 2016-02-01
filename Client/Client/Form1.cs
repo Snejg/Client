@@ -30,8 +30,8 @@ namespace Client
                 {
                     attempts++;
                     textBox_log.Text = "Connection attempt " + attempts;
-                    _clientSocket.Connect(IPAddress.Loopback, _PORT);
-                    //_clientSocket.Connect("192.168.1.3", _PORT);
+                    //_clientSocket.Connect(IPAddress.Loopback, _PORT);
+                    _clientSocket.Connect("192.168.1.2", _PORT);
 
                 }
                 catch (SocketException)
@@ -67,8 +67,8 @@ namespace Client
 
         private void SendRequest()
         {
-            textBox_log.AppendText("Send a request: \n");
-            string request = textBox_chat.Text;
+            textBox_log.AppendText("Send a request: next round \n");
+            string request = "next round";
             SendString(request);
 
             if (request.ToLower() == "exit")
@@ -77,9 +77,6 @@ namespace Client
             }
         }
 
-        /// <summary>
-        /// Sends a string to the server with ASCII encoding
-        /// </summary>
         private void SendString(string text)
         {
             byte[] buffer = Encoding.ASCII.GetBytes(text);
