@@ -40,7 +40,7 @@ namespace Client
                     attempts++;
                     textBox_log.Text = "Connection attempt " + attempts;
                     //_clientSocket.Connect(IPAddress.Loopback, _PORT);
-                    _clientSocket.Connect("192.168.1.2", _PORT);
+                    _clientSocket.Connect("192.168.1.3", _PORT);
 
                 }
                 catch (SocketException)
@@ -93,6 +93,13 @@ namespace Client
 
         }
 
+        private void SendWaitingRequest()
+        {
+            Message m = new Message(_ROLE, 300, 300);
+            byte[] buffer = m.getMessageByteArray();
+            SendMessage(buffer);
+        }
+
         private void SendString(string text)
         {
             byte[] buffer = Encoding.ASCII.GetBytes(text);
@@ -111,18 +118,29 @@ namespace Client
             if (received == 0) return;
             var data = new byte[received];
             Array.Copy(buffer, data, received);
-            string text = Encoding.ASCII.GetString(data);
+            Int32 role = BitConverter.ToInt32(data, 0);
+            Int32 reqOut = BitConverter.ToInt32(data, 4);
+            Int32 boxOut = BitConverter.ToInt32(data, 8);
 
-            this.textBox_log.Invoke(new MethodInvoker(delegate ()
-            { textBox_log.AppendText(text + "\n"); }));
+            if (reqOut == boxOut)
+            {
 
-            if(text == "waiting")
-            {
-                waitingLoop();
-            }
-            else if (text == "new")
-            {
-                stopWaiting();
+                //this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                //{ textBox_log.AppendText(text + "\n"); }));
+
+                if (reqOut == 300) // waiting
+                {
+                    waitingLoop();
+                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    { textBox_log.AppendText("Waiting \n"); }));
+                }
+                else if (reqOut == 200) // new round
+                {
+                    stopWaiting();
+                    EnableControls();
+                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    { textBox_log.AppendText("New \n"); }));
+                }
             }
 
         }
@@ -139,6 +157,30 @@ namespace Client
             waitingTimer.Enabled = false;            
         }
 
+        private void disableControls()
+        {            
+            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            { num_out_box.Value = 0; }));
+
+            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            { num_out_req_box.Value = 0; }));
+
+            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            { num_out_box.Enabled = false; }));
+
+            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            { num_out_req_box.Enabled = false; }));
+        }
+
+        private void EnableControls()
+        {
+            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            { num_out_box.Enabled = true; }));
+
+            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            { num_out_req_box.Enabled = true; }));
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             ConnectToServer();
@@ -146,9 +188,15 @@ namespace Client
 
         private void btn_send_Click(object sender, EventArgs e)
         {
-            SendRequest();
-            ReceiveResponse();
+            if (num_out_box.Value != 0 && num_out_req_box.Value != 0)         
+            {
+                SendRequest();
+                disableControls();
+                ReceiveResponse();
+            }
         }
+
+        
 
         public struct Message
         {
@@ -177,16 +225,9 @@ namespace Client
             }
         }
 
-        private void waitingTimer_Tick(object sender, EventArgs e)
-        {
-            SendRequest();
-            ReceiveResponse();
-            textBox_log.AppendText("TICK \n");
-        }
-
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            SendRequest();
+            SendWaitingRequest();
             ReceiveResponse();
         }
     }
