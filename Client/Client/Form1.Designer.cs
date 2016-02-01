@@ -52,18 +52,18 @@
             // 
             // textBox_log
             // 
-            this.textBox_log.Location = new System.Drawing.Point(440, 12);
+            this.textBox_log.Location = new System.Drawing.Point(411, 12);
             this.textBox_log.Multiline = true;
             this.textBox_log.Name = "textBox_log";
             this.textBox_log.ReadOnly = true;
-            this.textBox_log.Size = new System.Drawing.Size(173, 335);
+            this.textBox_log.Size = new System.Drawing.Size(202, 335);
             this.textBox_log.TabIndex = 0;
             // 
             // btn_send
             // 
             this.btn_send.Location = new System.Drawing.Point(31, 310);
             this.btn_send.Name = "btn_send";
-            this.btn_send.Size = new System.Drawing.Size(403, 37);
+            this.btn_send.Size = new System.Drawing.Size(357, 37);
             this.btn_send.TabIndex = 2;
             this.btn_send.Text = "Odeslat";
             this.btn_send.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(172, 212);
+            this.label1.Location = new System.Drawing.Point(156, 212);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 5;
@@ -99,7 +99,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(298, 107);
+            this.label4.Location = new System.Drawing.Point(281, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 13);
             this.label4.TabIndex = 9;
@@ -126,53 +126,53 @@
             // num_out_box
             // 
             this.num_out_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.num_out_box.Location = new System.Drawing.Point(59, 242);
+            this.num_out_box.Location = new System.Drawing.Point(31, 242);
             this.num_out_box.Name = "num_out_box";
-            this.num_out_box.Size = new System.Drawing.Size(55, 49);
+            this.num_out_box.Size = new System.Drawing.Size(102, 49);
             this.num_out_box.TabIndex = 21;
             // 
             // num_stock
             // 
             this.num_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.num_stock.Location = new System.Drawing.Point(193, 134);
+            this.num_stock.Location = new System.Drawing.Point(158, 134);
             this.num_stock.Name = "num_stock";
             this.num_stock.ReadOnly = true;
-            this.num_stock.Size = new System.Drawing.Size(55, 49);
+            this.num_stock.Size = new System.Drawing.Size(97, 49);
             this.num_stock.TabIndex = 22;
             // 
             // num_unfulfilled_orders
             // 
             this.num_unfulfilled_orders.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.num_unfulfilled_orders.Location = new System.Drawing.Point(193, 242);
+            this.num_unfulfilled_orders.Location = new System.Drawing.Point(158, 242);
             this.num_unfulfilled_orders.Name = "num_unfulfilled_orders";
             this.num_unfulfilled_orders.ReadOnly = true;
-            this.num_unfulfilled_orders.Size = new System.Drawing.Size(55, 49);
+            this.num_unfulfilled_orders.Size = new System.Drawing.Size(97, 49);
             this.num_unfulfilled_orders.TabIndex = 23;
             // 
             // num_in_box
             // 
             this.num_in_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.num_in_box.Location = new System.Drawing.Point(322, 242);
+            this.num_in_box.Location = new System.Drawing.Point(284, 242);
             this.num_in_box.Name = "num_in_box";
             this.num_in_box.ReadOnly = true;
-            this.num_in_box.Size = new System.Drawing.Size(55, 49);
+            this.num_in_box.Size = new System.Drawing.Size(104, 49);
             this.num_in_box.TabIndex = 24;
             // 
             // num_in_req_box
             // 
             this.num_in_req_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.num_in_req_box.Location = new System.Drawing.Point(59, 134);
+            this.num_in_req_box.Location = new System.Drawing.Point(31, 134);
             this.num_in_req_box.Name = "num_in_req_box";
             this.num_in_req_box.ReadOnly = true;
-            this.num_in_req_box.Size = new System.Drawing.Size(55, 49);
+            this.num_in_req_box.Size = new System.Drawing.Size(102, 49);
             this.num_in_req_box.TabIndex = 25;
             // 
             // num_out_req_box
             // 
             this.num_out_req_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.num_out_req_box.Location = new System.Drawing.Point(322, 134);
+            this.num_out_req_box.Location = new System.Drawing.Point(284, 134);
             this.num_out_req_box.Name = "num_out_req_box";
-            this.num_out_req_box.Size = new System.Drawing.Size(55, 49);
+            this.num_out_req_box.Size = new System.Drawing.Size(104, 49);
             this.num_out_req_box.TabIndex = 26;
             // 
             // Form1

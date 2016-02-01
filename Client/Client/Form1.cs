@@ -87,7 +87,7 @@ namespace Client
             }
             */
 
-            Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value);
+            Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, 500);
             byte[] buffer = m.getMessageByteArray();
             SendMessage(buffer);            
 
@@ -95,7 +95,7 @@ namespace Client
 
         private void SendWaitingRequest()
         {
-            Message m = new Message(_ROLE, 300, 300);
+            Message m = new Message(_ROLE, 300, 300, 500);
             byte[] buffer = m.getMessageByteArray();
             SendMessage(buffer);
         }
@@ -119,29 +119,33 @@ namespace Client
             var data = new byte[received];
             Array.Copy(buffer, data, received);
             Int32 role = BitConverter.ToInt32(data, 0);
-            Int32 reqOut = BitConverter.ToInt32(data, 4);
-            Int32 boxOut = BitConverter.ToInt32(data, 8);
+            Int32 reqInOut = BitConverter.ToInt32(data, 4);
+            Int32 boxInOut = BitConverter.ToInt32(data, 8);
+            Int32 roundCode = BitConverter.ToInt32(data, 12);
 
-            if (reqOut == boxOut)
+            //this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            //{ textBox_log.AppendText(text + "\n"); }));
+
+            if (roundCode == 300) // waiting
             {
-
-                //this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                //{ textBox_log.AppendText(text + "\n"); }));
-
-                if (reqOut == 300) // waiting
-                {
-                    waitingLoop();
-                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                    { textBox_log.AppendText("Waiting \n"); }));
-                }
-                else if (reqOut == 200) // new round
-                {
-                    stopWaiting();
-                    EnableControls();
-                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                    { textBox_log.AppendText("New \n"); }));
-                }
+                waitingLoop();
+                this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                { textBox_log.AppendText("Waiting \n"); }));
             }
+            else if (roundCode == 200) // new round
+            {
+                stopWaiting();
+                EnableControls();
+                this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                { textBox_log.AppendText("New \n"); }));
+
+                this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                { num_in_box.Value = boxInOut; }));
+
+                this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                { num_in_req_box.Value = reqInOut; }));
+            }
+
 
         }
 
@@ -196,19 +200,19 @@ namespace Client
             }
         }
 
-        
-
         public struct Message
         {
             Int32 role;
             Int32 boxOut;
             Int32 boxReqOut;
+            Int32 roundCode;
 
-            public Message(Int32 p_role, Int32 p_boxOut, Int32 p_boxReqOut)
+            public Message(Int32 p_role, Int32 p_boxOut, Int32 p_boxReqOut, Int32 p_roudCode)
             {
                 role = p_role;
                 boxOut = p_boxOut;
                 boxReqOut = p_boxReqOut;
+                roundCode = p_roudCode;
             }
 
             public byte[] getMessageByteArray()
@@ -216,11 +220,13 @@ namespace Client
                 byte[] data1 = BitConverter.GetBytes(role);
                 byte[] data2 = BitConverter.GetBytes(boxOut);
                 byte[] data3 = BitConverter.GetBytes(boxReqOut);
+                byte[] data4 = BitConverter.GetBytes(roundCode);
 
-                byte[] data = new byte[data1.Length + data2.Length + data3.Length];
+                byte[] data = new byte[data1.Length + data2.Length + data3.Length + data3.Length];
                 Buffer.BlockCopy(data1, 0, data, 0, data1.Length);
                 Buffer.BlockCopy(data2, 0, data, data1.Length, data2.Length);
                 Buffer.BlockCopy(data3, 0, data, data1.Length + data2.Length, data3.Length);
+                Buffer.BlockCopy(data4, 0, data, data1.Length + data2.Length + data3.Length, data4.Length);
                 return data;
             }
         }
