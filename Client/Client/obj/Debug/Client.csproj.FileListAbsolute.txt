@@ -1,0 +1,9 @@
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\bin\Debug\Client.exe.config
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\obj\Debug\Client.Form1.resources
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\bin\Debug\Client.exe
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\bin\Debug\Client.pdb
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\obj\Debug\Client.exe
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\obj\Debug\Client.pdb
