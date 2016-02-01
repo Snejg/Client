@@ -17,9 +17,10 @@ namespace Client
             try
             {
                 int portNumber = int.Parse(args[0]);
+                int roleNumber = int.Parse(args[1]);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1(portNumber));
+                Application.Run(new Form1(portNumber, roleNumber));
             }
             catch(IndexOutOfRangeException)
             {

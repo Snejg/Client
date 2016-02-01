@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace Client
@@ -11,13 +12,21 @@ namespace Client
 
         private static readonly Socket _clientSocket = new Socket
         (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        private static System.Timers.Timer waitingTimer = new System.Timers.Timer();
 
         private static int _PORT;
+        private static int _ROLE;
 
-        public Form1(int portNumber)
+        public Form1(int portNumber, int roleNumber)
         {
             _PORT = portNumber;
+            _ROLE = roleNumber;
             InitializeComponent();
+            
+            waitingTimer.Interval = 1000;
+            waitingTimer.Enabled = false;
+            waitingTimer.Elapsed += OnTimedEvent;
+
         }
 
         private void ConnectToServer()
@@ -67,20 +76,32 @@ namespace Client
 
         private void SendRequest()
         {
+            /*
             textBox_log.AppendText("Send a request: next round \n");
             string request = "next round";
             SendString(request);
-
+            
             if (request.ToLower() == "exit")
             {
                 Exit();
             }
+            */
+
+            Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value);
+            byte[] buffer = m.getMessageByteArray();
+            SendMessage(buffer);            
+
         }
 
         private void SendString(string text)
         {
             byte[] buffer = Encoding.ASCII.GetBytes(text);
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
+        }
+
+        private void SendMessage(byte[] mes)
+        {
+            _clientSocket.Send(mes, 0, mes.Length, SocketFlags.None);
         }
 
         private void ReceiveResponse()
@@ -95,6 +116,27 @@ namespace Client
             this.textBox_log.Invoke(new MethodInvoker(delegate ()
             { textBox_log.AppendText(text + "\n"); }));
 
+            if(text == "waiting")
+            {
+                waitingLoop();
+            }
+            else if (text == "new")
+            {
+                stopWaiting();
+            }
+
+        }
+
+        private void waitingLoop()
+        {
+            waitingTimer.Enabled = true;
+            waitingTimer.Start();
+        }
+
+        private void stopWaiting()
+        {
+            waitingTimer.Stop();
+            waitingTimer.Enabled = false;            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -103,6 +145,46 @@ namespace Client
         }
 
         private void btn_send_Click(object sender, EventArgs e)
+        {
+            SendRequest();
+            ReceiveResponse();
+        }
+
+        public struct Message
+        {
+            Int32 role;
+            Int32 boxOut;
+            Int32 boxReqOut;
+
+            public Message(Int32 p_role, Int32 p_boxOut, Int32 p_boxReqOut)
+            {
+                role = p_role;
+                boxOut = p_boxOut;
+                boxReqOut = p_boxReqOut;
+            }
+
+            public byte[] getMessageByteArray()
+            {
+                byte[] data1 = BitConverter.GetBytes(role);
+                byte[] data2 = BitConverter.GetBytes(boxOut);
+                byte[] data3 = BitConverter.GetBytes(boxReqOut);
+
+                byte[] data = new byte[data1.Length + data2.Length + data3.Length];
+                Buffer.BlockCopy(data1, 0, data, 0, data1.Length);
+                Buffer.BlockCopy(data2, 0, data, data1.Length, data2.Length);
+                Buffer.BlockCopy(data3, 0, data, data1.Length + data2.Length, data3.Length);
+                return data;
+            }
+        }
+
+        private void waitingTimer_Tick(object sender, EventArgs e)
+        {
+            SendRequest();
+            ReceiveResponse();
+            textBox_log.AppendText("TICK \n");
+        }
+
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             SendRequest();
             ReceiveResponse();
