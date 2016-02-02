@@ -95,7 +95,14 @@ namespace Client
 
         private void SendWaitingRequest()
         {
-            Message m = new Message(_ROLE, 300, 300, 500);
+            Message m = new Message(_ROLE, 300, 300, 300);
+            byte[] buffer = m.getMessageByteArray();
+            SendMessage(buffer);
+        }
+
+        private void loadConfigurationRequest()
+        {
+            Message m = new Message(_ROLE, 600, 600, 600);
             byte[] buffer = m.getMessageByteArray();
             SendMessage(buffer);
         }
@@ -126,7 +133,7 @@ namespace Client
             //this.textBox_log.Invoke(new MethodInvoker(delegate ()
             //{ textBox_log.AppendText(text + "\n"); }));
 
-            if (roundCode == 300) // waiting
+            if (roundCode == 300) // start waiting
             {
                 waitingLoop();
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
@@ -145,8 +152,6 @@ namespace Client
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
                 { num_in_req_box.Value = reqInOut; }));
             }
-
-
         }
 
         private void waitingLoop()
@@ -211,6 +216,10 @@ namespace Client
                     { tb_role.Text = "Neznámá role"; }));
                     break;
             }
+            loadConfigurationRequest();
+            ReceiveResponse();
+            //ReceiveResponse();
+
         }
 
         private void btn_send_Click(object sender, EventArgs e)
