@@ -119,8 +119,8 @@ namespace Client
             var data = new byte[received];
             Array.Copy(buffer, data, received);
             Int32 role = BitConverter.ToInt32(data, 0);
-            Int32 reqInOut = BitConverter.ToInt32(data, 4);
-            Int32 boxInOut = BitConverter.ToInt32(data, 8);
+            Int32 boxInOut = BitConverter.ToInt32(data, 4);
+            Int32 reqInOut = BitConverter.ToInt32(data, 8);
             Int32 roundCode = BitConverter.ToInt32(data, 12);
 
             //this.textBox_log.Invoke(new MethodInvoker(delegate ()
@@ -188,6 +188,29 @@ namespace Client
         private void Form1_Load(object sender, EventArgs e)
         {
             ConnectToServer();
+            switch (_ROLE)
+            {
+                case 0:
+                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    { tb_role.Text = "Továrna"; }));
+                    break;
+                case 1:
+                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    { tb_role.Text = "Distributor"; }));
+                    break;
+                case 2:
+                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    { tb_role.Text = "Velko-obchodník"; }));
+                    break;
+                case 3:
+                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    { tb_role.Text = "Malo-obchodník"; }));
+                    break;
+                default:
+                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    { tb_role.Text = "Neznámá role"; }));
+                    break;
+            }
         }
 
         private void btn_send_Click(object sender, EventArgs e)

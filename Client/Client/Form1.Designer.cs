@@ -42,6 +42,8 @@
             this.num_in_box = new System.Windows.Forms.NumericUpDown();
             this.num_in_req_box = new System.Windows.Forms.NumericUpDown();
             this.num_out_req_box = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tb_role = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.num_out_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_unfulfilled_orders)).BeginInit();
@@ -52,6 +54,7 @@
             // 
             // textBox_log
             // 
+            this.textBox_log.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox_log.Location = new System.Drawing.Point(411, 12);
             this.textBox_log.Multiline = true;
             this.textBox_log.Name = "textBox_log";
@@ -133,6 +136,7 @@
             // 
             // num_stock
             // 
+            this.num_stock.Enabled = false;
             this.num_stock.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.num_stock.Location = new System.Drawing.Point(158, 134);
             this.num_stock.Name = "num_stock";
@@ -142,6 +146,7 @@
             // 
             // num_unfulfilled_orders
             // 
+            this.num_unfulfilled_orders.Enabled = false;
             this.num_unfulfilled_orders.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.num_unfulfilled_orders.Location = new System.Drawing.Point(158, 242);
             this.num_unfulfilled_orders.Name = "num_unfulfilled_orders";
@@ -151,6 +156,7 @@
             // 
             // num_in_box
             // 
+            this.num_in_box.Enabled = false;
             this.num_in_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.num_in_box.Location = new System.Drawing.Point(284, 242);
             this.num_in_box.Name = "num_in_box";
@@ -160,6 +166,7 @@
             // 
             // num_in_req_box
             // 
+            this.num_in_req_box.Enabled = false;
             this.num_in_req_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.num_in_req_box.Location = new System.Drawing.Point(31, 134);
             this.num_in_req_box.Name = "num_in_req_box";
@@ -175,11 +182,31 @@
             this.num_out_req_box.Size = new System.Drawing.Size(104, 49);
             this.num_out_req_box.TabIndex = 26;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(26, 26);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Role:";
+            // 
+            // tb_role
+            // 
+            this.tb_role.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tb_role.Location = new System.Drawing.Point(64, 15);
+            this.tb_role.Name = "tb_role";
+            this.tb_role.ReadOnly = true;
+            this.tb_role.Size = new System.Drawing.Size(324, 29);
+            this.tb_role.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(626, 357);
+            this.Controls.Add(this.tb_role);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.num_out_req_box);
             this.Controls.Add(this.num_in_req_box);
             this.Controls.Add(this.num_in_box);
@@ -224,6 +251,8 @@
         private System.Windows.Forms.NumericUpDown num_in_box;
         private System.Windows.Forms.NumericUpDown num_in_req_box;
         private System.Windows.Forms.NumericUpDown num_out_req_box;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tb_role;
     }
 }
 
