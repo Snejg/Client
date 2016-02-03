@@ -18,9 +18,9 @@ namespace Client
         private static int _ROLE;
 
         private static Int32 _stock = 0;
-        private static Int32 _stockArchive = 0;
-        private static Int32 _unfulfilledOrders = 20;
-        private static Int32 _unfulfilledOrdersArchive = 2;
+        //private static Int32 _stockArchive = 0;
+        private static Int32 _unfulfilledOrders = 0;
+        //private static Int32 _unfulfilledOrdersArchive = 2;
 
         public Form1(int portNumber, int roleNumber)
         {
@@ -90,6 +90,7 @@ namespace Client
 
             Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, 500);
             byte[] buffer = m.getMessageByteArray();
+            resetAllCells();
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
 
         }
@@ -241,7 +242,7 @@ namespace Client
             { num_stock.Value = _stock; }));
         }
 
-        private void add2unOrders(Int32 barrelCount)  // prichozi hodnota z boxIn
+        private void add2unfulfilledOrders(Int32 barrelCount)  // prichozi hodnota z boxIn
         {
             _unfulfilledOrders += barrelCount;
             //_stockArchive = _stock;
@@ -291,7 +292,7 @@ namespace Client
         
         private bool checkCorrectMove()
         {
-            if(num_stock.Value == 0 || _unfulfilledOrders == 0)
+            if(num_stock.Value == 0 || num_unfulfilled_orders.Value == 0)
             {
                 return true;
             }
@@ -301,6 +302,14 @@ namespace Client
             }
         }        
 
+        private void resetAllCells()
+        {
+            num_in_box.Value = 0;
+            num_out_box.Value = 0;
+            num_in_req_box.Value = 0;
+            num_out_req_box.Value = 0;
+        }
+
         private void updateCLientStockAndUnfulfilledOrders(Int32 un_orders, Int32 stock)
         {
             _unfulfilledOrders = un_orders;
@@ -309,15 +318,12 @@ namespace Client
 
         private void num_in_box_ValueChanged(object sender, EventArgs e)
         {
-            add2Stock((Int32)num_in_box.Value);
-
-            //this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
-            //{ num_unfulfilled_orders.Value = _unfulfilledOrders + (int)num_in_req_box.Value; }));
+            add2Stock((Int32)num_in_box.Value); // pridej prichozi barely a zobraz
         }
 
         private void num_in_req_box_ValueChanged(object sender, EventArgs e)
         {
-            add2unOrders((Int32)num_in_req_box.Value);
+            add2unfulfilledOrders((Int32)num_in_req_box.Value); // pridej prichozi pozadavek a zobraz
         }
 
         private void num_out_box_ValueChanged(object sender, EventArgs e)
