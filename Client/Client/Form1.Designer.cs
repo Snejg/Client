@@ -175,6 +175,7 @@
             this.num_in_req_box.ReadOnly = true;
             this.num_in_req_box.Size = new System.Drawing.Size(102, 49);
             this.num_in_req_box.TabIndex = 25;
+            this.num_in_req_box.ValueChanged += new System.EventHandler(this.num_in_req_box_ValueChanged);
             // 
             // num_out_req_box
             // 

@@ -20,6 +20,7 @@ namespace Client
         private static Int32 _stock = 0;
         private static Int32 _stockArchive = 0;
         private static Int32 _unfulfilledOrders = 20;
+        private static Int32 _unfulfilledOrdersArchive = 2;
 
         public Form1(int portNumber, int roleNumber)
         {
@@ -81,7 +82,12 @@ namespace Client
         private void SendRequest()
         {
             //_stockArchive -= (Int32)num_out_box.Value;
-            resetStock((Int32)num_out_box.Value);
+            //resetStock((Int32)num_out_box.Value);
+
+            int un_order = (int) num_unfulfilled_orders.Value;
+            int stock = (int) num_stock.Value;
+            updateCLientStockAndUnfulfilledOrders(un_order, stock);
+
             Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, 500);
             byte[] buffer = m.getMessageByteArray();
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
@@ -133,15 +139,17 @@ namespace Client
             {
                 stopWaiting();
                 EnableControls();
-                //add2Stock(boxInOut);
+
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
                 { textBox_log.AppendText("New \n"); }));
 
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                { num_in_box.Value = boxInOut; }));
+                { num_in_req_box.Value = reqInOut; }));
 
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                { num_in_req_box.Value = reqInOut; }));
+                { num_in_box.Value = boxInOut; }));
+
+
             }
         }
 
@@ -184,6 +192,10 @@ namespace Client
         private void Form1_Load(object sender, EventArgs e)
         {
             ConnectToServer();
+
+            this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
+            { num_unfulfilled_orders.Value = _unfulfilledOrders; }));
+
             switch (_ROLE)
             {
                 case 0:
@@ -213,31 +225,39 @@ namespace Client
 
         private void btn_send_Click(object sender, EventArgs e)
         {
-            if (num_out_box.Value != 0 && num_out_req_box.Value != 0)         
+            if (num_out_box.Value != 0 && num_out_req_box.Value != 0 && checkCorrectMove())         
             {
                 SendRequest();
                 disableControls();
-                //resetStock();
                 ReceiveResponse();
             }
         }
 
-        private void add2Stock(Int32 barrelCount)
+        private void add2Stock(Int32 barrelCount)  // prichozi hodnota z boxIn
         {
             _stock += barrelCount;
-            _stockArchive = _stock;
+            //_stockArchive = _stock;
             this.num_stock.Invoke(new MethodInvoker(delegate ()
             { num_stock.Value = _stock; }));
         }
 
-        private void resetStock(int val)
+        private void add2unOrders(Int32 barrelCount)  // prichozi hodnota z boxIn
+        {
+            _unfulfilledOrders += barrelCount;
+            //_stockArchive = _stock;
+            this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
+            { num_unfulfilled_orders.Value = _unfulfilledOrders; }));
+        }
+
+        /*
+        private void resetStock(int val) // novy stav zasob pro dalsi kolo - VYMAZAT
         {
             _stock -= val;
             _stockArchive -= val;
             //_stock = _stockArchive;
         }
-
-        private void removeFromStock(Int32 barrelCount)
+        
+        private void removeFromStock(Int32 barrelCount) // pro zobrazeni - VYMAZAT
         {
             _stock -= barrelCount;
             if(_stock < 0)
@@ -249,24 +269,72 @@ namespace Client
             _stock = _stockArchive;
         }
 
+        private void removeFromUnOrders(Int32 barrelCount, Int32 incomeOrder) // pro zobrazeni - VYMAZAT
+        {   
+            
+            _unfulfilledOrders -= barrelCount;
+            if (_unfulfilledOrders < 0)
+            {
+                _unfulfilledOrders = 0;
+            }
+            
+            this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
+            { num_unfulfilled_orders.Value = _unfulfilledOrders + incomeOrder; }));
+            //_unfulfilledOrders = _unfulfilledOrdersArchive;
+        }
+        */
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
             SendWaitingRequest();
             ReceiveResponse();
         }
+        
+        private bool checkCorrectMove()
+        {
+            if(num_stock.Value == 0 || _unfulfilledOrders == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }        
+
+        private void updateCLientStockAndUnfulfilledOrders(Int32 un_orders, Int32 stock)
+        {
+            _unfulfilledOrders = un_orders;
+            _stock = stock;
+        }
 
         private void num_in_box_ValueChanged(object sender, EventArgs e)
         {
-            add2Stock((Int32)num_in_box.Value);            
+            add2Stock((Int32)num_in_box.Value);
+
+            //this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
+            //{ num_unfulfilled_orders.Value = _unfulfilledOrders + (int)num_in_req_box.Value; }));
+        }
+
+        private void num_in_req_box_ValueChanged(object sender, EventArgs e)
+        {
+            add2unOrders((Int32)num_in_req_box.Value);
         }
 
         private void num_out_box_ValueChanged(object sender, EventArgs e)
         {
-            if(num_out_box.Value > _stockArchive)
+            int sumOfOrders = (int) num_unfulfilled_orders.Value; // suma pozadavku
+            int stock = (int)num_stock.Value;
+            int minValue = Math.Min(_stock, _unfulfilledOrders);
+
+            if(minValue - (int) num_out_box.Value <= 0)
             {
-                num_out_box.Value = _stockArchive;
+                num_out_box.Value = minValue;
             }
-            removeFromStock((Int32)num_out_box.Value);            
+            num_stock.Value = _stock;
+            num_unfulfilled_orders.Value = _unfulfilledOrders;
+            num_stock.Value -= num_out_box.Value;
+            num_unfulfilled_orders.Value-= num_out_box.Value;
+
         }
 
 
