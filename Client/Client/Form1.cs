@@ -80,6 +80,8 @@ namespace Client
 
         private void SendRequest()
         {
+            //_stockArchive -= (Int32)num_out_box.Value;
+            resetStock((Int32)num_out_box.Value);
             Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, 500);
             byte[] buffer = m.getMessageByteArray();
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
@@ -215,7 +217,7 @@ namespace Client
             {
                 SendRequest();
                 disableControls();
-                resetStock();
+                //resetStock();
                 ReceiveResponse();
             }
         }
@@ -228,10 +230,11 @@ namespace Client
             { num_stock.Value = _stock; }));
         }
 
-        private void resetStock()
+        private void resetStock(int val)
         {
-            _stock = 0;
-            _stockArchive = 0;
+            _stock -= val;
+            _stockArchive -= val;
+            //_stock = _stockArchive;
         }
 
         private void removeFromStock(Int32 barrelCount)
