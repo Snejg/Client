@@ -133,6 +133,7 @@
             this.num_out_box.Name = "num_out_box";
             this.num_out_box.Size = new System.Drawing.Size(102, 49);
             this.num_out_box.TabIndex = 21;
+            this.num_out_box.ValueChanged += new System.EventHandler(this.num_out_box_ValueChanged);
             // 
             // num_stock
             // 
@@ -163,6 +164,7 @@
             this.num_in_box.ReadOnly = true;
             this.num_in_box.Size = new System.Drawing.Size(104, 49);
             this.num_in_box.TabIndex = 24;
+            this.num_in_box.ValueChanged += new System.EventHandler(this.num_in_box_ValueChanged);
             // 
             // num_in_req_box
             // 

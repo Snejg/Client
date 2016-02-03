@@ -17,6 +17,10 @@ namespace Client
         private static int _PORT;
         private static int _ROLE;
 
+        private static Int32 _stock = 0;
+        private static Int32 _stockArchive = 0;
+        private static Int32 _unfulfilledOrders = 20;
+
         public Form1(int portNumber, int roleNumber)
         {
             _PORT = portNumber;
@@ -76,20 +80,9 @@ namespace Client
 
         private void SendRequest()
         {
-            /*
-            textBox_log.AppendText("Send a request: next round \n");
-            string request = "next round";
-            SendString(request);
-            
-            if (request.ToLower() == "exit")
-            {
-                Exit();
-            }
-            */
-
             Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, 500);
             byte[] buffer = m.getMessageByteArray();
-            SendMessage(buffer);            
+            _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
 
         }
 
@@ -97,25 +90,20 @@ namespace Client
         {
             Message m = new Message(_ROLE, 300, 300, 300);
             byte[] buffer = m.getMessageByteArray();
-            SendMessage(buffer);
+            _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
         }
 
         private void loadConfigurationRequest()
         {
             Message m = new Message(_ROLE, 600, 600, 600);
             byte[] buffer = m.getMessageByteArray();
-            SendMessage(buffer);
-        }
-
-        private void SendString(string text)
-        {
-            byte[] buffer = Encoding.ASCII.GetBytes(text);
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
         }
 
-        private void SendMessage(byte[] mes)
+        private void SendString(string text) // zatim necham
         {
-            _clientSocket.Send(mes, 0, mes.Length, SocketFlags.None);
+            byte[] buffer = Encoding.ASCII.GetBytes(text);
+            _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
         }
 
         private void ReceiveResponse()
@@ -143,6 +131,7 @@ namespace Client
             {
                 stopWaiting();
                 EnableControls();
+                //add2Stock(boxInOut);
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
                 { textBox_log.AppendText("New \n"); }));
 
@@ -218,8 +207,6 @@ namespace Client
             }
             loadConfigurationRequest();
             ReceiveResponse();
-            //ReceiveResponse();
-
         }
 
         private void btn_send_Click(object sender, EventArgs e)
@@ -228,9 +215,57 @@ namespace Client
             {
                 SendRequest();
                 disableControls();
+                resetStock();
                 ReceiveResponse();
             }
         }
+
+        private void add2Stock(Int32 barrelCount)
+        {
+            _stock += barrelCount;
+            _stockArchive = _stock;
+            this.num_stock.Invoke(new MethodInvoker(delegate ()
+            { num_stock.Value = _stock; }));
+        }
+
+        private void resetStock()
+        {
+            _stock = 0;
+            _stockArchive = 0;
+        }
+
+        private void removeFromStock(Int32 barrelCount)
+        {
+            _stock -= barrelCount;
+            if(_stock < 0)
+            {
+                _stock = 0;
+            }
+            this.num_stock.Invoke(new MethodInvoker(delegate ()
+            { num_stock.Value = _stock; }));
+            _stock = _stockArchive;
+        }
+
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            SendWaitingRequest();
+            ReceiveResponse();
+        }
+
+        private void num_in_box_ValueChanged(object sender, EventArgs e)
+        {
+            add2Stock((Int32)num_in_box.Value);            
+        }
+
+        private void num_out_box_ValueChanged(object sender, EventArgs e)
+        {
+            if(num_out_box.Value > _stockArchive)
+            {
+                num_out_box.Value = _stockArchive;
+            }
+            removeFromStock((Int32)num_out_box.Value);            
+        }
+
 
         public struct Message
         {
@@ -263,10 +298,5 @@ namespace Client
             }
         }
 
-        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            SendWaitingRequest();
-            ReceiveResponse();
-        }
     }
 }
