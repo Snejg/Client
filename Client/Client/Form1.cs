@@ -85,7 +85,7 @@ namespace Client
             _roundNumber++;
             updateScore();
 
-            Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, -500);
+            Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, _stock,_unfulfilledOrders ,-500);
             byte[] buffer = m.getMessageByteArray();
             // vymazani vsech vstupnich poli (aby doslo ke zmene -> zavola se metoda)
             resetAllCells();
@@ -95,14 +95,14 @@ namespace Client
 
         private void SendWaitingRequest()
         {
-            Message m = new Message(_ROLE, 300, 300, -300);
+            Message m = new Message(_ROLE, 300, 300,300,300,-300);
             byte[] buffer = m.getMessageByteArray();
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
         }
 
         private void loadConfigurationRequest()
         {
-            Message m = new Message(_ROLE, 600, 600, -600);
+            Message m = new Message(_ROLE, 600, 600, 600, 600, -600);
             byte[] buffer = m.getMessageByteArray();
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
         }
@@ -310,13 +310,17 @@ namespace Client
             Int32 role;
             Int32 boxOut;
             Int32 boxReqOut;
+            Int32 stock;
+            Int32 u_orders;
             Int32 roundCode;
 
-            public Message(Int32 p_role, Int32 p_boxOut, Int32 p_boxReqOut, Int32 p_roudCode)
+            public Message(Int32 p_role, Int32 p_boxOut, Int32 p_boxReqOut, Int32 p_stock, Int32 p_orders, Int32 p_roudCode)
             {
                 role = p_role;
                 boxOut = p_boxOut;
                 boxReqOut = p_boxReqOut;
+                stock = p_stock;
+                u_orders = p_orders;
                 roundCode = p_roudCode;
             }
 
@@ -325,13 +329,17 @@ namespace Client
                 byte[] data1 = BitConverter.GetBytes(role);
                 byte[] data2 = BitConverter.GetBytes(boxOut);
                 byte[] data3 = BitConverter.GetBytes(boxReqOut);
-                byte[] data4 = BitConverter.GetBytes(roundCode);
+                byte[] data4 = BitConverter.GetBytes(stock);
+                byte[] data5 = BitConverter.GetBytes(u_orders);
+                byte[] data6 = BitConverter.GetBytes(roundCode);
 
-                byte[] data = new byte[data1.Length + data2.Length + data3.Length + data3.Length];
+                byte[] data = new byte[data1.Length + data2.Length + data3.Length + data3.Length + data4.Length + data5.Length + data6.Length];
                 Buffer.BlockCopy(data1, 0, data, 0, data1.Length);
                 Buffer.BlockCopy(data2, 0, data, data1.Length, data2.Length);
                 Buffer.BlockCopy(data3, 0, data, data1.Length + data2.Length, data3.Length);
                 Buffer.BlockCopy(data4, 0, data, data1.Length + data2.Length + data3.Length, data4.Length);
+                Buffer.BlockCopy(data5, 0, data, data1.Length + data2.Length + data3.Length + data4.Length, data5.Length);
+                Buffer.BlockCopy(data6, 0, data, data1.Length + data2.Length + data3.Length + data4.Length + data5.Length, data6.Length);
                 return data;
             }
         }
