@@ -76,6 +76,10 @@ namespace Client
 
         private void SendRequest()
         {
+            try
+            {
+
+            
             // pred odeslanim hodnot si upravim sklad a zakazky podle aktualni hodnoty v poli
             int un_order = (int) num_unfulfilled_orders.Value;
             int stock = (int) num_stock.Value;
@@ -91,6 +95,15 @@ namespace Client
             resetAllCells();
             //posladni dat serveru
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
+            }
+            catch(Exception e) // nastala chyba -> udelej log
+            {
+                if (!_clientSocket.Connected)
+                {
+                    Console.WriteLine("vypadlo internetove spojeni");
+                    Environment.Exit(666);
+                }
+            }
         }
 
         private void SendWaitingRequest()
