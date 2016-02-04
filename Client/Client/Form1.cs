@@ -16,7 +16,9 @@ namespace Client
 
         private static int _PORT;
         private static int _ROLE;
-    
+        private static int _costSum = 0;
+        private static int _roundNumber = 1;
+
         private static Int32 _stock = 0;
         private static Int32 _unfulfilledOrders = 0;
 
@@ -29,33 +31,26 @@ namespace Client
             waitingTimer.Interval = 1000;
             waitingTimer.Enabled = false;
             waitingTimer.Elapsed += OnTimedEvent;
-
         }
 
         private void ConnectToServer()
         {
-            int attempts = 0;
-
             while (!_clientSocket.Connected)
             {
                 try
                 {
-                    attempts++;
-                    textBox_log.Text = "Connection attempt " + attempts;
                     //_clientSocket.Connect(IPAddress.Loopback, _PORT);
                     _clientSocket.Connect("192.168.1.3", _PORT);
-
                 }
                 catch (SocketException)
                 {
-                    textBox_log.Text = "";
+                    //textBox_log.Text = "";
                 }
             }
-
-            textBox_log.Text = "";
-            textBox_log.AppendText("Connected \n");
+            //textBox_log.AppendText("Connected \n");
         }
 
+        /*
         private void RequestLoop()
         {
             textBox_log.AppendText(" type exit to properly disconnect client \n");
@@ -67,6 +62,7 @@ namespace Client
             }
 
         }
+        */
 
         /*
         private void Exit() 
@@ -84,8 +80,12 @@ namespace Client
             int un_order = (int) num_unfulfilled_orders.Value;
             int stock = (int) num_stock.Value;
             updateCLientStockAndUnfulfilledOrders(un_order, stock);
+            add2CostSum();
+            add2Chart();
+            _roundNumber++;
+            updateScore();
 
-            Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, 500);
+            Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, -500);
             byte[] buffer = m.getMessageByteArray();
             // vymazani vsech vstupnich poli (aby doslo ke zmene -> zavola se metoda)
             resetAllCells();
@@ -95,14 +95,14 @@ namespace Client
 
         private void SendWaitingRequest()
         {
-            Message m = new Message(_ROLE, 300, 300, 300);
+            Message m = new Message(_ROLE, 300, 300, -300);
             byte[] buffer = m.getMessageByteArray();
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
         }
 
         private void loadConfigurationRequest()
         {
-            Message m = new Message(_ROLE, 600, 600, 600);
+            Message m = new Message(_ROLE, 600, 600, -600);
             byte[] buffer = m.getMessageByteArray();
             _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
         }
@@ -126,19 +126,19 @@ namespace Client
             Int32 reqInOut = BitConverter.ToInt32(data, 8);
             Int32 roundCode = BitConverter.ToInt32(data, 12);
 
-            if (roundCode == 300) // start waiting
+            if (roundCode == -300) // start waiting
             {
                 waitingLoop();
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                { textBox_log.AppendText("Waiting \n"); }));
+                { textBox_log.Text = "Čekáš na ostatní hráče"; }));
             }
-            else if (roundCode == 200) // new round
+            else if (roundCode == -200) // new round
             {
                 stopWaiting();
                 EnableControls();
 
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                { textBox_log.AppendText("New \n"); }));
+                { textBox_log.Text = "Nové kolo"; }));
 
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
                 { num_in_req_box.Value = reqInOut; }));
@@ -162,31 +162,35 @@ namespace Client
 
         private void disableControls()
         {            
-            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            this.num_out_box.Invoke(new MethodInvoker(delegate ()
             { num_out_box.Value = 0; }));
 
-            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            this.num_out_req_box.Invoke(new MethodInvoker(delegate ()
             { num_out_req_box.Value = 0; }));
 
-            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            this.num_out_box.Invoke(new MethodInvoker(delegate ()
             { num_out_box.Enabled = false; }));
 
-            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            this.num_out_req_box.Invoke(new MethodInvoker(delegate ()
             { num_out_req_box.Enabled = false; }));
         }
 
         private void EnableControls()
         {
-            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            this.num_out_box.Invoke(new MethodInvoker(delegate ()
             { num_out_box.Enabled = true; }));
 
-            this.textBox_log.Invoke(new MethodInvoker(delegate ()
+            this.num_out_req_box.Invoke(new MethodInvoker(delegate ()
             { num_out_req_box.Enabled = true; }));
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ConnectToServer();
+            add2CostSum();
+            //FormBorderStyle = FormBorderStyle.None;   
+            //WindowState = FormWindowState.Maximized;
+
             /*
             this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
             { num_unfulfilled_orders.Value = _unfulfilledOrders; }));
@@ -194,23 +198,23 @@ namespace Client
             switch (_ROLE)
             {
                 case 0:
-                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    this.tb_role.Invoke(new MethodInvoker(delegate ()
                     { tb_role.Text = "Továrna"; }));
                     break;
                 case 1:
-                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    this.tb_role.Invoke(new MethodInvoker(delegate ()
                     { tb_role.Text = "Distributor"; }));
                     break;
                 case 2:
-                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    this.tb_role.Invoke(new MethodInvoker(delegate ()
                     { tb_role.Text = "Velko-obchodník"; }));
                     break;
                 case 3:
-                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    this.tb_role.Invoke(new MethodInvoker(delegate ()
                     { tb_role.Text = "Malo-obchodník"; }));
                     break;
                 default:
-                    this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                    this.tb_role.Invoke(new MethodInvoker(delegate ()
                     { tb_role.Text = "Neznámá role"; }));
                     break;
             }
@@ -332,5 +336,40 @@ namespace Client
             }
         }
 
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);            
+        }
+
+        private void add2CostSum()
+        {
+            int costOfStock = (int) _stock * 50;
+            int costOfunOrders = (int) _unfulfilledOrders * 100;
+            _costSum = _costSum + costOfStock + costOfunOrders;
+        }
+
+        private void add2Chart()
+        {
+            chart1.Series["Celkové náklady"].Points.AddXY
+                            (_roundNumber, _costSum);
+        }
+
+        private void updateScore()
+        {
+            this.tb_score.Invoke(new MethodInvoker(delegate ()
+            { tb_score.Text = _costSum.ToString(); }));
+        }
+
+        private void tabControl1_Enter(object sender, EventArgs e)
+        {
+            /*
+            Random rdn = new Random();
+            for (int i = 0; i < 50; i++)
+            {
+                chart1.Series["Celkové náklady"].Points.AddXY
+                                (i, rdn.Next(0, 100));            
+            }
+            */
+        }
     }
 }
