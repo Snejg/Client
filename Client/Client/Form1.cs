@@ -142,8 +142,14 @@ namespace Client
             if (roundCode == -300) // start waiting
             {
                 waitingLoop();
-                this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                { textBox_log.Text = "Čekáš na ostatní hráče"; }));
+
+                /*this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                { textBox_log.Text = "Čekáš na ostatní hráče"; }));*/
+
+                this.lbl_status.Invoke(new MethodInvoker(delegate ()
+                { lbl_status.Text = "(Čekáš na ostatní hráče)"; }));
+
+
             }
             else if (roundCode == -200) // new round
             {
@@ -152,14 +158,18 @@ namespace Client
                 updateRound();
                 updateScore();
 
-                this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                { textBox_log.Text = "Nové kolo"; }));
+                /*this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                { textBox_log.Text = "Nové kolo"; }));*/
 
-                this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                this.lbl_status.Invoke(new MethodInvoker(delegate ()
+                { lbl_status.Text = "(Nové kolo)"; }));
+                
+                this.num_in_req_box.Invoke(new MethodInvoker(delegate ()
                 { num_in_req_box.Value = reqInOut; }));
 
-                this.textBox_log.Invoke(new MethodInvoker(delegate ()
+                this.num_in_box.Invoke(new MethodInvoker(delegate ()
                 { num_in_box.Value = boxInOut; }));
+                
             }
         }
 
@@ -199,10 +209,76 @@ namespace Client
             { num_out_req_box.Enabled = true; }));
         }
 
+        private void setScreenLayout(int role)
+        {
+            switch (_ROLE)
+            {
+                case 0:
+                    this.lbl_role.Invoke(new MethodInvoker(delegate ()
+                    { lbl_role.Text = "Továrna"; }));
+
+                    this.pictureBox.Invoke(new MethodInvoker(delegate ()
+                    { pictureBox.Image = global::Client.Properties.Resources.bg_14; }));
+
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Location = new System.Drawing.Point(727,380); }));
+
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Size = new System.Drawing.Size (760, 358); }));
+
+                    break;
+
+                case 1:
+                    this.lbl_role.Invoke(new MethodInvoker(delegate ()
+                    { lbl_role.Text = "Distributor"; }));
+                    this.pictureBox.Invoke(new MethodInvoker(delegate ()
+                    { pictureBox.Image = global::Client.Properties.Resources.bg_22; }));
+
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Location = new System.Drawing.Point(79, 382); }));
+
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Size = new System.Drawing.Size(736, 358); }));
+                    break;
+
+                case 2:
+                    this.lbl_role.Invoke(new MethodInvoker(delegate ()
+                    { lbl_role.Text = "Velko-obchodník"; }));
+                    this.pictureBox.Invoke(new MethodInvoker(delegate ()
+                    { pictureBox.Image = global::Client.Properties.Resources.bg_3; }));
+
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Location = new System.Drawing.Point(696, 217); }));
+
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Size = new System.Drawing.Size(736, 358); }));
+                    break;
+
+                case 3:
+                    this.lbl_role.Invoke(new MethodInvoker(delegate ()
+                    { lbl_role.Text = "Malo-obchodník"; }));
+                    this.pictureBox.Invoke(new MethodInvoker(delegate ()
+                    { pictureBox.Image = global::Client.Properties.Resources.bg_41; }));
+
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Location = new System.Drawing.Point(90, 15); }));
+
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Size = new System.Drawing.Size(736, 372); }));
+
+                    break;
+                default:
+                    this.lbl_role.Invoke(new MethodInvoker(delegate ()
+                    { lbl_role.Text = "Neznámá role"; }));
+                    break;
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             ConnectToServer();
             add2CostSum();
+            setScreenLayout(_ROLE);
             //num_in_req_box.ForeColor = System.Drawing.Color.Red;
             //num_out_box.ForeColor = System.Drawing.Color.Red;
             //FormBorderStyle = FormBorderStyle.None;   
@@ -214,29 +290,6 @@ namespace Client
             this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
             { num_unfulfilled_orders.Value = _unfulfilledOrders; }));
             */
-            switch (_ROLE)
-            {
-                case 0:
-                    this.tb_role.Invoke(new MethodInvoker(delegate ()
-                    { tb_role.Text = "Továrna"; }));
-                    break;
-                case 1:
-                    this.tb_role.Invoke(new MethodInvoker(delegate ()
-                    { tb_role.Text = "Distributor"; }));
-                    break;
-                case 2:
-                    this.tb_role.Invoke(new MethodInvoker(delegate ()
-                    { tb_role.Text = "Velko-obchodník"; }));
-                    break;
-                case 3:
-                    this.tb_role.Invoke(new MethodInvoker(delegate ()
-                    { tb_role.Text = "Malo-obchodník"; }));
-                    break;
-                default:
-                    this.tb_role.Invoke(new MethodInvoker(delegate ()
-                    { tb_role.Text = "Neznámá role"; }));
-                    break;
-            }
             loadConfigurationRequest();
             ReceiveResponse();
         }
