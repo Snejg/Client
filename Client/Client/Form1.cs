@@ -39,8 +39,8 @@ namespace Client
             {
                 try
                 {
-                    //_clientSocket.Connect(IPAddress.Loopback, _PORT);
-                    _clientSocket.Connect("192.168.1.3", _PORT);
+                    _clientSocket.Connect(IPAddress.Loopback, _PORT);
+                    //_clientSocket.Connect("192.168.1.3", _PORT);
                 }
                 catch (SocketException)
                 {
@@ -87,7 +87,7 @@ namespace Client
             add2CostSum();
             add2Chart();
             _roundNumber++;
-            updateScore();
+            updateScore();            
 
             Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, _stock,_unfulfilledOrders ,-500);
             byte[] buffer = m.getMessageByteArray();
@@ -149,6 +149,8 @@ namespace Client
             {
                 stopWaiting();
                 EnableControls();
+                updateRound();
+                updateScore();
 
                 this.textBox_log.Invoke(new MethodInvoker(delegate ()
                 { textBox_log.Text = "Nové kolo"; }));
@@ -201,8 +203,12 @@ namespace Client
         {
             ConnectToServer();
             add2CostSum();
+            //num_in_req_box.ForeColor = System.Drawing.Color.Red;
+            //num_out_box.ForeColor = System.Drawing.Color.Red;
             //FormBorderStyle = FormBorderStyle.None;   
             //WindowState = FormWindowState.Maximized;
+
+            //num_in_req_box.Controls[0].Hide();
 
             /*
             this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
@@ -380,6 +386,14 @@ namespace Client
             this.tb_score.Invoke(new MethodInvoker(delegate ()
             { tb_score.Text = _costSum.ToString(); }));
         }
+
+        private void updateRound()
+        {
+            this.tb_score.Invoke(new MethodInvoker(delegate ()
+            { tb_round.Text = _roundNumber.ToString(); }));
+        }
+
+
 
         private void tabControl1_Enter(object sender, EventArgs e)
         {

@@ -7,3 +7,5 @@ C:\Users\s1398\Documents\Diplomka\Client\Client\Client\bin\Debug\Client.exe
 C:\Users\s1398\Documents\Diplomka\Client\Client\Client\bin\Debug\Client.pdb
 C:\Users\s1398\Documents\Diplomka\Client\Client\Client\obj\Debug\Client.exe
 C:\Users\s1398\Documents\Diplomka\Client\Client\Client\obj\Debug\Client.pdb
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\s1398\Documents\Diplomka\Client\Client\Client\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml

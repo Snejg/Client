@@ -33,8 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -66,6 +69,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,6 +83,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beer_stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\env.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\env_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\handshake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck with bottles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck with bottles2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\road2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\road21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factory1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factory-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\road3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pokus_factory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
