@@ -22,6 +22,8 @@ namespace Client
         private static Int32 _stock = 0;
         private static Int32 _unfulfilledOrders = 0;
 
+        private static bool _endGame = false;
+
         public Form1(int portNumber, int roleNumber)
         {
             _PORT = portNumber;
@@ -64,22 +66,19 @@ namespace Client
         }
         */
 
-        /*
+        
         private void Exit() 
-        {
-            SendString("exit"); // Tell the server we re exiting
+        {           
             _clientSocket.Shutdown(SocketShutdown.Both);
             _clientSocket.Close();
             Environment.Exit(0);
         }
-        */
+        
 
         private void SendRequest()
         {
             try
-            {
-
-            
+            {            
             // pred odeslanim hodnot si upravim sklad a zakazky podle aktualni hodnoty v poli
             int un_order = (int) num_unfulfilled_orders.Value;
             int stock = (int) num_stock.Value;
@@ -100,7 +99,7 @@ namespace Client
             {
                 if (!_clientSocket.Connected)
                 {
-                    Console.WriteLine("vypadlo internetove spojeni");
+                    Console.WriteLine("Vypadlo internetove spojeni");
                     Environment.Exit(666);
                 }
             }
@@ -163,13 +162,16 @@ namespace Client
 
                 this.lbl_status.Invoke(new MethodInvoker(delegate ()
                 { lbl_status.Text = "(Nové kolo)"; }));
-                
+
                 this.num_in_req_box.Invoke(new MethodInvoker(delegate ()
                 { num_in_req_box.Value = reqInOut; }));
 
                 this.num_in_box.Invoke(new MethodInvoker(delegate ()
                 { num_in_box.Value = boxInOut; }));
-                
+
+            } else if (roundCode == -900)
+            {
+                Exit();
             }
         }
 
@@ -279,6 +281,10 @@ namespace Client
             ConnectToServer();
             add2CostSum();
             setScreenLayout(_ROLE);
+            //tab_main.SelectedIndex[2].En
+            //tab_main.Controls.RemoveAt(2);
+            //tab_main.Controls.Add(tab_endGame);
+
             //num_in_req_box.ForeColor = System.Drawing.Color.Red;
             //num_out_box.ForeColor = System.Drawing.Color.Red;
             //FormBorderStyle = FormBorderStyle.None;   
@@ -458,6 +464,26 @@ namespace Client
                                 (i, rdn.Next(0, 100));            
             }
             */
+        }
+
+        private void tab_main_Selecting(object sender, TabControlCancelEventArgs e) // blokovani tabu 
+        {
+            switch (_endGame)
+            {
+                case true: // je konec hry
+                    if ((this.tab_main.SelectedTab == tabPage1) || (this.tab_main.SelectedTab == tabPage2))
+                    {
+                        e.Cancel = true;
+                    }
+                    break;
+                case false: // neni konec hry
+                    if (this.tab_main.SelectedTab == tab_endGame)
+                    {
+                        e.Cancel = true;
+                    }
+                    break;
+            }
+
         }
     }
 }

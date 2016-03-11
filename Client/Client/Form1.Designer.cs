@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.btn_exit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_score = new System.Windows.Forms.TextBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab_main = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox_panel = new System.Windows.Forms.GroupBox();
             this.lbl_status = new System.Windows.Forms.Label();
@@ -50,22 +50,31 @@
             this.num_out_box = new System.Windows.Forms.NumericUpDown();
             this.num_out_req_box = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.num_stock = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tb_round = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pb_stock = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.tabControl1.SuspendLayout();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tb_round = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tab_endGame = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tb_teamTotal = new System.Windows.Forms.TextBox();
+            this.tb_comparison = new System.Windows.Forms.TextBox();
+            this.tb_trivialStrategy = new System.Windows.Forms.TextBox();
+            this.tb_lowestScore = new System.Windows.Forms.TextBox();
+            this.tab_main.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_in_box)).BeginInit();
@@ -73,16 +82,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_in_req_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_out_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_out_req_box)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_stock)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.tab_endGame.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_exit
@@ -101,11 +111,11 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(1181, 8);
+            this.label9.Location = new System.Drawing.Point(1148, 8);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 37);
+            this.label9.Size = new System.Drawing.Size(142, 37);
             this.label9.TabIndex = 32;
-            this.label9.Text = "Skóre:";
+            this.label9.Text = "Náklady:";
             // 
             // tb_score
             // 
@@ -119,20 +129,22 @@
             this.tb_score.TabIndex = 31;
             this.tb_score.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tabControl1
+            // tab_main
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tab_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 48);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1576, 840);
-            this.tabControl1.TabIndex = 34;
-            this.tabControl1.Enter += new System.EventHandler(this.tabControl1_Enter);
+            this.tab_main.Controls.Add(this.tabPage1);
+            this.tab_main.Controls.Add(this.tabPage2);
+            this.tab_main.Controls.Add(this.tab_endGame);
+            this.tab_main.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tab_main.Location = new System.Drawing.Point(12, 48);
+            this.tab_main.Name = "tab_main";
+            this.tab_main.SelectedIndex = 0;
+            this.tab_main.Size = new System.Drawing.Size(1576, 840);
+            this.tab_main.TabIndex = 34;
+            this.tab_main.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tab_main_Selecting);
+            this.tab_main.Enter += new System.EventHandler(this.tabControl1_Enter);
             // 
             // tabPage1
             // 
@@ -346,6 +358,27 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Odchozí láhve";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(7, 56);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(169, 87);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(560, 47);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(160, 116);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -394,97 +427,6 @@
             this.label3.Size = new System.Drawing.Size(158, 31);
             this.label3.TabIndex = 7;
             this.label3.Text = "Požadavek";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.tabPage2.Controls.Add(this.chart1);
-            this.tabPage2.Controls.Add(this.btn_exit);
-            this.tabPage2.Location = new System.Drawing.Point(4, 46);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1568, 790);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Vývoj nákladů";
-            // 
-            // chart1
-            // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chart1.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.chart1.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea5.AxisX.Interval = 2D;
-            chartArea5.AxisX.LineWidth = 2;
-            chartArea5.AxisX.Maximum = 50D;
-            chartArea5.AxisX.Minimum = 0D;
-            chartArea5.AxisY.LineWidth = 2;
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(6, 62);
-            this.chart1.Name = "chart1";
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.Red;
-            series5.Legend = "Legend1";
-            series5.Name = "Celkové náklady";
-            this.chart1.Series.Add(series5);
-            this.chart1.Size = new System.Drawing.Size(1556, 722);
-            this.chart1.TabIndex = 30;
-            this.chart1.Text = "chart1";
-            title5.BackColor = System.Drawing.Color.Transparent;
-            title5.BorderColor = System.Drawing.Color.Transparent;
-            title5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title5.Name = "Vývoj celkových nákladů";
-            this.chart1.Titles.Add(title5);
-            // 
-            // tb_round
-            // 
-            this.tb_round.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_round.Enabled = false;
-            this.tb_round.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tb_round.Location = new System.Drawing.Point(1482, 10);
-            this.tb_round.Name = "tb_round";
-            this.tb_round.ReadOnly = true;
-            this.tb_round.Size = new System.Drawing.Size(104, 29);
-            this.tb_round.TabIndex = 33;
-            this.tb_round.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(1396, 8);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 37);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Kolo:";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(7, 56);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(169, 87);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(560, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(160, 116);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
             // 
             // pb_stock
             // 
@@ -546,6 +488,161 @@
             this.pictureBox.TabIndex = 31;
             this.pictureBox.TabStop = false;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.tabPage2.Controls.Add(this.chart1);
+            this.tabPage2.Controls.Add(this.btn_exit);
+            this.tabPage2.Location = new System.Drawing.Point(4, 46);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1568, 790);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Vývoj nákladů";
+            // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chart1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.chart1.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
+            chartArea10.AxisX.Interval = 2D;
+            chartArea10.AxisX.LineWidth = 2;
+            chartArea10.AxisX.Maximum = 50D;
+            chartArea10.AxisX.Minimum = 0D;
+            chartArea10.AxisY.LineWidth = 2;
+            chartArea10.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea10);
+            this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            legend10.Name = "Legend1";
+            this.chart1.Legends.Add(legend10);
+            this.chart1.Location = new System.Drawing.Point(6, 62);
+            this.chart1.Name = "chart1";
+            series10.BorderWidth = 3;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Color = System.Drawing.Color.Red;
+            series10.Legend = "Legend1";
+            series10.Name = "Celkové náklady";
+            this.chart1.Series.Add(series10);
+            this.chart1.Size = new System.Drawing.Size(1556, 722);
+            this.chart1.TabIndex = 30;
+            this.chart1.Text = "chart1";
+            title10.BackColor = System.Drawing.Color.Transparent;
+            title10.BorderColor = System.Drawing.Color.Transparent;
+            title10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title10.Name = "Vývoj celkových nákladů";
+            this.chart1.Titles.Add(title10);
+            // 
+            // tb_round
+            // 
+            this.tb_round.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_round.Enabled = false;
+            this.tb_round.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tb_round.Location = new System.Drawing.Point(1482, 10);
+            this.tb_round.Name = "tb_round";
+            this.tb_round.ReadOnly = true;
+            this.tb_round.Size = new System.Drawing.Size(104, 29);
+            this.tb_round.TabIndex = 33;
+            this.tb_round.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(1396, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 37);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Kolo:";
+            // 
+            // tab_endGame
+            // 
+            this.tab_endGame.Controls.Add(this.tb_lowestScore);
+            this.tab_endGame.Controls.Add(this.tb_trivialStrategy);
+            this.tab_endGame.Controls.Add(this.tb_comparison);
+            this.tab_endGame.Controls.Add(this.tb_teamTotal);
+            this.tab_endGame.Controls.Add(this.label12);
+            this.tab_endGame.Controls.Add(this.label11);
+            this.tab_endGame.Controls.Add(this.label8);
+            this.tab_endGame.Controls.Add(this.label7);
+            this.tab_endGame.Location = new System.Drawing.Point(4, 46);
+            this.tab_endGame.Name = "tab_endGame";
+            this.tab_endGame.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_endGame.Size = new System.Drawing.Size(1568, 790);
+            this.tab_endGame.TabIndex = 2;
+            this.tab_endGame.Text = "Výsledek hry";
+            this.tab_endGame.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(59, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(459, 37);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Celkové tvého náklady týmu: ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(153, 146);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(365, 37);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Porovnání s ostatními: ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(221, 228);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(297, 37);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Triviální strategie: ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 319);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(512, 37);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Nejnižší možné týmové náklady: ";
+            // 
+            // tb_teamTotal
+            // 
+            this.tb_teamTotal.Location = new System.Drawing.Point(524, 46);
+            this.tb_teamTotal.Name = "tb_teamTotal";
+            this.tb_teamTotal.Size = new System.Drawing.Size(322, 44);
+            this.tb_teamTotal.TabIndex = 4;
+            // 
+            // tb_comparison
+            // 
+            this.tb_comparison.Location = new System.Drawing.Point(524, 139);
+            this.tb_comparison.Name = "tb_comparison";
+            this.tb_comparison.Size = new System.Drawing.Size(322, 44);
+            this.tb_comparison.TabIndex = 5;
+            // 
+            // tb_trivialStrategy
+            // 
+            this.tb_trivialStrategy.Enabled = false;
+            this.tb_trivialStrategy.Location = new System.Drawing.Point(524, 221);
+            this.tb_trivialStrategy.Name = "tb_trivialStrategy";
+            this.tb_trivialStrategy.Size = new System.Drawing.Size(322, 44);
+            this.tb_trivialStrategy.TabIndex = 6;
+            this.tb_trivialStrategy.Text = "76 000 kč";
+            // 
+            // tb_lowestScore
+            // 
+            this.tb_lowestScore.Location = new System.Drawing.Point(524, 312);
+            this.tb_lowestScore.Name = "tb_lowestScore";
+            this.tb_lowestScore.Size = new System.Drawing.Size(322, 44);
+            this.tb_lowestScore.TabIndex = 7;
+            this.tb_lowestScore.Text = "29 000 kč";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,7 +650,7 @@
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(1600, 900);
             this.Controls.Add(this.tb_round);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tab_main);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tb_score);
             this.Controls.Add(this.label9);
@@ -562,7 +659,7 @@
             this.Text = "Client";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tab_main.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox_panel.ResumeLayout(false);
             this.groupBox_panel.PerformLayout();
@@ -571,16 +668,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_in_req_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_out_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_out_req_box)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_stock)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.tab_endGame.ResumeLayout(false);
+            this.tab_endGame.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -590,7 +689,7 @@
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_score;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tab_main;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -619,6 +718,15 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label lbl_role;
         private System.Windows.Forms.Label lbl_status;
+        private System.Windows.Forms.TabPage tab_endGame;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tb_lowestScore;
+        private System.Windows.Forms.TextBox tb_trivialStrategy;
+        private System.Windows.Forms.TextBox tb_comparison;
+        private System.Windows.Forms.TextBox tb_teamTotal;
     }
 }
 
