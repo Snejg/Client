@@ -152,6 +152,9 @@ namespace Client
             } else if (roundCode == -900) // close game
             {
                 Exit();
+            }else if(roundCode == -1000)
+            {
+                endGameOccur();
             }
         }
 
@@ -451,7 +454,19 @@ namespace Client
                     }
                     break;
             }
+        }
 
+        private void endGameOccur()
+        {
+            _endGame = true;
+            //tab_main.SelectedTab = tab_endGame;
+            this.tab_main.Invoke(new MethodInvoker(delegate ()
+            { tab_main.SelectedTab = tab_endGame; }));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            endGameOccur();
         }
     }
 }

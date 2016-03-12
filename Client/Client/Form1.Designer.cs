@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.btn_exit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_score = new System.Windows.Forms.TextBox();
@@ -79,6 +79,7 @@
             this.tb_round = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
             this.tab_main.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox_panel.SuspendLayout();
@@ -496,6 +497,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.chart2);
             this.tabPage2.Controls.Add(this.chart1);
             this.tabPage2.Location = new System.Drawing.Point(4, 46);
@@ -512,33 +514,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart1.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea2.AxisX.Interval = 2D;
-            chartArea2.AxisX.LineWidth = 2;
-            chartArea2.AxisX.Maximum = 50D;
-            chartArea2.AxisX.Minimum = 0D;
-            chartArea2.AxisY.LineWidth = 2;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea4.AxisX.Interval = 2D;
+            chartArea4.AxisX.LineWidth = 2;
+            chartArea4.AxisX.Maximum = 50D;
+            chartArea4.AxisX.Minimum = 0D;
+            chartArea4.AxisY.LineWidth = 2;
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(6, 35);
             this.chart1.Name = "chart1";
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.Name = "Celkové náklady";
-            this.chart1.Series.Add(series2);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Red;
+            series4.Legend = "Legend1";
+            series4.Name = "Celkové náklady";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(1556, 360);
             this.chart1.TabIndex = 30;
             this.chart1.Text = "chart1";
-            title2.BackColor = System.Drawing.Color.Transparent;
-            title2.BorderColor = System.Drawing.Color.Transparent;
-            title2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title2.Name = "Vývoj celkových nákladů";
-            this.chart1.Titles.Add(title2);
+            title4.BackColor = System.Drawing.Color.Transparent;
+            title4.BorderColor = System.Drawing.Color.Transparent;
+            title4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title4.Name = "Vývoj celkových nákladů";
+            this.chart1.Titles.Add(title4);
             // 
             // tab_endGame
             // 
@@ -656,33 +658,43 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart2.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart2.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea1.AxisX.Interval = 2D;
-            chartArea1.AxisX.LineWidth = 2;
-            chartArea1.AxisX.Maximum = 50D;
-            chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisY.LineWidth = 2;
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.Interval = 2D;
+            chartArea3.AxisX.LineWidth = 2;
+            chartArea3.AxisX.Maximum = 50D;
+            chartArea3.AxisX.Minimum = 0D;
+            chartArea3.AxisY.LineWidth = 2;
+            chartArea3.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea3);
             this.chart2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend1.Name = "Legend1";
-            this.chart2.Legends.Add(legend1);
+            legend3.Name = "Legend1";
+            this.chart2.Legends.Add(legend3);
             this.chart2.Location = new System.Drawing.Point(23, 401);
             this.chart2.Name = "chart2";
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.Blue;
-            series1.Legend = "Legend1";
-            series1.Name = "Vývoj požadavků";
-            this.chart2.Series.Add(series1);
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Blue;
+            series3.Legend = "Legend1";
+            series3.Name = "Vývoj požadavků";
+            this.chart2.Series.Add(series3);
             this.chart2.Size = new System.Drawing.Size(1536, 360);
             this.chart2.TabIndex = 31;
             this.chart2.Text = "chart2";
-            title1.BackColor = System.Drawing.Color.Transparent;
-            title1.BorderColor = System.Drawing.Color.Transparent;
-            title1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title1.Name = "Vývoj celkových nákladů";
-            this.chart2.Titles.Add(title1);
+            title3.BackColor = System.Drawing.Color.Transparent;
+            title3.BorderColor = System.Drawing.Color.Transparent;
+            title3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title3.Name = "Vývoj celkových nákladů";
+            this.chart2.Titles.Add(title3);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1394, 298);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 60);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -770,6 +782,7 @@
         private System.Windows.Forms.TextBox tb_comparison;
         private System.Windows.Forms.TextBox tb_teamTotal;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
