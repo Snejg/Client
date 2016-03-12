@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Timers;
 using System.Windows.Forms;
 
 namespace Client
@@ -15,7 +13,8 @@ namespace Client
         private static System.Timers.Timer waitingTimer = new System.Timers.Timer();
 
         private static int _PORT;
-        private static int _ROLE;
+        private static int _ROLE = -2;
+        private static string _IP_ADDRESS;
         private static int _costSum = 0;
         private static int _roundNumber = 1;
 
@@ -24,10 +23,10 @@ namespace Client
 
         private static bool _endGame = false;
 
-        public Form1(int portNumber, int roleNumber)
+        public Form1(int portNumber, string ipAddress)
         {
             _PORT = portNumber;
-            _ROLE = roleNumber;
+            _IP_ADDRESS = ipAddress;
             InitializeComponent();
             
             waitingTimer.Interval = 1000;
@@ -51,21 +50,6 @@ namespace Client
             }
             //textBox_log.AppendText("Connected \n");
         }
-
-        /*
-        private void RequestLoop()
-        {
-            textBox_log.AppendText(" type exit to properly disconnect client \n");
-
-            while (true)
-            {
-                //SendRequest();
-                //ReceiveResponse();
-            }
-
-        }
-        */
-
         
         private void Exit() 
         {           
@@ -79,21 +63,22 @@ namespace Client
         {
             try
             {            
-            // pred odeslanim hodnot si upravim sklad a zakazky podle aktualni hodnoty v poli
-            int un_order = (int) num_unfulfilled_orders.Value;
-            int stock = (int) num_stock.Value;
-            updateCLientStockAndUnfulfilledOrders(un_order, stock);
-            add2CostSum();
-            add2Chart();
-            _roundNumber++;
-            updateScore();            
+                // pred odeslanim hodnot si upravim sklad a zakazky podle aktualni hodnoty v poli
+                int un_order = (int) num_unfulfilled_orders.Value;
+                int stock = (int) num_stock.Value;
+                int customerRequest = (int)num_in_req_box.Value;
+                updateCLientStockAndUnfulfilledOrders(un_order, stock);
+                add2CostSum();
+                add2Chart(customerRequest);
+                _roundNumber++;
+                updateScore();            
 
-            Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, _stock,_unfulfilledOrders ,-500);
-            byte[] buffer = m.getMessageByteArray();
-            // vymazani vsech vstupnich poli (aby doslo ke zmene -> zavola se metoda)
-            resetAllCells();
-            //posladni dat serveru
-            _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
+                Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, _stock,_unfulfilledOrders ,-500);
+                byte[] buffer = m.getMessageByteArray();
+                // vymazani vsech vstupnich poli (aby doslo ke zmene -> zavola se metoda)
+                resetAllCells();
+                //posladni dat serveru
+                _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
             }
             catch(Exception e) // nastala chyba -> udelej log
             {
@@ -142,9 +127,6 @@ namespace Client
             {
                 waitingLoop();
 
-                /*this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                { textBox_log.Text = "Čekáš na ostatní hráče"; }));*/
-
                 this.lbl_status.Invoke(new MethodInvoker(delegate ()
                 { lbl_status.Text = "(Čekáš na ostatní hráče)"; }));
 
@@ -153,12 +135,10 @@ namespace Client
             else if (roundCode == -200) // new round
             {
                 stopWaiting();
+                setRole(role);            
                 EnableControls();
                 updateRound();
                 updateScore();
-
-                /*this.textBox_log.Invoke(new MethodInvoker(delegate ()
-                { textBox_log.Text = "Nové kolo"; }));*/
 
                 this.lbl_status.Invoke(new MethodInvoker(delegate ()
                 { lbl_status.Text = "(Nové kolo)"; }));
@@ -169,10 +149,18 @@ namespace Client
                 this.num_in_box.Invoke(new MethodInvoker(delegate ()
                 { num_in_box.Value = boxInOut; }));
 
-            } else if (roundCode == -900)
+            } else if (roundCode == -900) // close game
             {
                 Exit();
             }
+        }
+
+        private void setRole(int role)
+        {
+            if(role >=0 & role <= 3)
+            {
+                _ROLE = role;
+            }          
         }
 
         private void waitingLoop()
@@ -278,18 +266,9 @@ namespace Client
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ConnectToServer();
-            add2CostSum();
-            setScreenLayout(_ROLE);
-            //tab_main.SelectedIndex[2].En
-            //tab_main.Controls.RemoveAt(2);
-            //tab_main.Controls.Add(tab_endGame);
-
-            //num_in_req_box.ForeColor = System.Drawing.Color.Red;
-            //num_out_box.ForeColor = System.Drawing.Color.Red;
-            //FormBorderStyle = FormBorderStyle.None;   
-            //WindowState = FormWindowState.Maximized;
-
+            ConnectToServer(); // pripojeni k serveru
+            add2CostSum();     // nacti si aktualni stav nakladu
+            
             //num_in_req_box.Controls[0].Hide();
 
             /*
@@ -298,6 +277,7 @@ namespace Client
             */
             loadConfigurationRequest();
             ReceiveResponse();
+            setScreenLayout(_ROLE);
         }
 
         private void btn_send_Click(object sender, EventArgs e)
@@ -434,10 +414,12 @@ namespace Client
             _costSum = _costSum + costOfStock + costOfunOrders;
         }
 
-        private void add2Chart()
+        private void add2Chart(int customerRequest)
         {
             chart1.Series["Celkové náklady"].Points.AddXY
                             (_roundNumber, _costSum);
+            chart2.Series["Vývoj požadavků"].Points.AddXY
+                (_roundNumber, customerRequest);
         }
 
         private void updateScore()
@@ -450,20 +432,6 @@ namespace Client
         {
             this.tb_score.Invoke(new MethodInvoker(delegate ()
             { tb_round.Text = _roundNumber.ToString(); }));
-        }
-
-
-
-        private void tabControl1_Enter(object sender, EventArgs e)
-        {
-            /*
-            Random rdn = new Random();
-            for (int i = 0; i < 50; i++)
-            {
-                chart1.Series["Celkové náklady"].Points.AddXY
-                                (i, rdn.Next(0, 100));            
-            }
-            */
         }
 
         private void tab_main_Selecting(object sender, TabControlCancelEventArgs e) // blokovani tabu 

@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.btn_exit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_score = new System.Windows.Forms.TextBox();
@@ -63,17 +67,18 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tab_endGame = new System.Windows.Forms.TabPage();
+            this.tb_lowestScore = new System.Windows.Forms.TextBox();
+            this.tb_trivialStrategy = new System.Windows.Forms.TextBox();
+            this.tb_comparison = new System.Windows.Forms.TextBox();
+            this.tb_teamTotal = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tb_round = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tab_endGame = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tb_teamTotal = new System.Windows.Forms.TextBox();
-            this.tb_comparison = new System.Windows.Forms.TextBox();
-            this.tb_trivialStrategy = new System.Windows.Forms.TextBox();
-            this.tb_lowestScore = new System.Windows.Forms.TextBox();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tab_main.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox_panel.SuspendLayout();
@@ -93,14 +98,15 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tab_endGame.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_exit
             // 
             this.btn_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_exit.Location = new System.Drawing.Point(1438, 6);
+            this.btn_exit.Location = new System.Drawing.Point(13, 396);
             this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(124, 42);
+            this.btn_exit.Size = new System.Drawing.Size(833, 120);
             this.btn_exit.TabIndex = 29;
             this.btn_exit.Text = "Konec hry";
             this.btn_exit.UseVisualStyleBackColor = true;
@@ -144,7 +150,6 @@
             this.tab_main.Size = new System.Drawing.Size(1576, 840);
             this.tab_main.TabIndex = 34;
             this.tab_main.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tab_main_Selecting);
-            this.tab_main.Enter += new System.EventHandler(this.tabControl1_Enter);
             // 
             // tabPage1
             // 
@@ -491,8 +496,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.tabPage2.Controls.Add(this.chart2);
             this.tabPage2.Controls.Add(this.chart1);
-            this.tabPage2.Controls.Add(this.btn_exit);
             this.tabPage2.Location = new System.Drawing.Point(4, 46);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -507,33 +512,119 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart1.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea10.AxisX.Interval = 2D;
-            chartArea10.AxisX.LineWidth = 2;
-            chartArea10.AxisX.Maximum = 50D;
-            chartArea10.AxisX.Minimum = 0D;
-            chartArea10.AxisY.LineWidth = 2;
-            chartArea10.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea10);
+            chartArea2.AxisX.Interval = 2D;
+            chartArea2.AxisX.LineWidth = 2;
+            chartArea2.AxisX.Maximum = 50D;
+            chartArea2.AxisX.Minimum = 0D;
+            chartArea2.AxisY.LineWidth = 2;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend10.Name = "Legend1";
-            this.chart1.Legends.Add(legend10);
-            this.chart1.Location = new System.Drawing.Point(6, 62);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(6, 35);
             this.chart1.Name = "chart1";
-            series10.BorderWidth = 3;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Color = System.Drawing.Color.Red;
-            series10.Legend = "Legend1";
-            series10.Name = "Celkové náklady";
-            this.chart1.Series.Add(series10);
-            this.chart1.Size = new System.Drawing.Size(1556, 722);
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.Red;
+            series2.Legend = "Legend1";
+            series2.Name = "Celkové náklady";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(1556, 360);
             this.chart1.TabIndex = 30;
             this.chart1.Text = "chart1";
-            title10.BackColor = System.Drawing.Color.Transparent;
-            title10.BorderColor = System.Drawing.Color.Transparent;
-            title10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title10.Name = "Vývoj celkových nákladů";
-            this.chart1.Titles.Add(title10);
+            title2.BackColor = System.Drawing.Color.Transparent;
+            title2.BorderColor = System.Drawing.Color.Transparent;
+            title2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title2.Name = "Vývoj celkových nákladů";
+            this.chart1.Titles.Add(title2);
+            // 
+            // tab_endGame
+            // 
+            this.tab_endGame.Controls.Add(this.tb_lowestScore);
+            this.tab_endGame.Controls.Add(this.tb_trivialStrategy);
+            this.tab_endGame.Controls.Add(this.btn_exit);
+            this.tab_endGame.Controls.Add(this.tb_comparison);
+            this.tab_endGame.Controls.Add(this.tb_teamTotal);
+            this.tab_endGame.Controls.Add(this.label12);
+            this.tab_endGame.Controls.Add(this.label11);
+            this.tab_endGame.Controls.Add(this.label8);
+            this.tab_endGame.Controls.Add(this.label7);
+            this.tab_endGame.Location = new System.Drawing.Point(4, 46);
+            this.tab_endGame.Name = "tab_endGame";
+            this.tab_endGame.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_endGame.Size = new System.Drawing.Size(1568, 790);
+            this.tab_endGame.TabIndex = 2;
+            this.tab_endGame.Text = "Výsledek hry";
+            this.tab_endGame.UseVisualStyleBackColor = true;
+            // 
+            // tb_lowestScore
+            // 
+            this.tb_lowestScore.Location = new System.Drawing.Point(524, 312);
+            this.tb_lowestScore.Name = "tb_lowestScore";
+            this.tb_lowestScore.Size = new System.Drawing.Size(322, 44);
+            this.tb_lowestScore.TabIndex = 7;
+            this.tb_lowestScore.Text = "29 000 kč";
+            // 
+            // tb_trivialStrategy
+            // 
+            this.tb_trivialStrategy.Enabled = false;
+            this.tb_trivialStrategy.Location = new System.Drawing.Point(524, 221);
+            this.tb_trivialStrategy.Name = "tb_trivialStrategy";
+            this.tb_trivialStrategy.Size = new System.Drawing.Size(322, 44);
+            this.tb_trivialStrategy.TabIndex = 6;
+            this.tb_trivialStrategy.Text = "76 000 kč";
+            // 
+            // tb_comparison
+            // 
+            this.tb_comparison.Location = new System.Drawing.Point(524, 139);
+            this.tb_comparison.Name = "tb_comparison";
+            this.tb_comparison.Size = new System.Drawing.Size(322, 44);
+            this.tb_comparison.TabIndex = 5;
+            // 
+            // tb_teamTotal
+            // 
+            this.tb_teamTotal.Location = new System.Drawing.Point(524, 46);
+            this.tb_teamTotal.Name = "tb_teamTotal";
+            this.tb_teamTotal.Size = new System.Drawing.Size(322, 44);
+            this.tb_teamTotal.TabIndex = 4;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 319);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(512, 37);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Nejnižší možné týmové náklady: ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(221, 228);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(297, 37);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Triviální strategie: ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(153, 146);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(365, 37);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Porovnání s ostatními: ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(59, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(459, 37);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Celkové tvého náklady týmu: ";
             // 
             // tb_round
             // 
@@ -558,90 +649,40 @@
             this.label10.TabIndex = 34;
             this.label10.Text = "Kolo:";
             // 
-            // tab_endGame
+            // chart2
             // 
-            this.tab_endGame.Controls.Add(this.tb_lowestScore);
-            this.tab_endGame.Controls.Add(this.tb_trivialStrategy);
-            this.tab_endGame.Controls.Add(this.tb_comparison);
-            this.tab_endGame.Controls.Add(this.tb_teamTotal);
-            this.tab_endGame.Controls.Add(this.label12);
-            this.tab_endGame.Controls.Add(this.label11);
-            this.tab_endGame.Controls.Add(this.label8);
-            this.tab_endGame.Controls.Add(this.label7);
-            this.tab_endGame.Location = new System.Drawing.Point(4, 46);
-            this.tab_endGame.Name = "tab_endGame";
-            this.tab_endGame.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_endGame.Size = new System.Drawing.Size(1568, 790);
-            this.tab_endGame.TabIndex = 2;
-            this.tab_endGame.Text = "Výsledek hry";
-            this.tab_endGame.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(59, 53);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(459, 37);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Celkové tvého náklady týmu: ";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(153, 146);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(365, 37);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Porovnání s ostatními: ";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(221, 228);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(297, 37);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Triviální strategie: ";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 319);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(512, 37);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Nejnižší možné týmové náklady: ";
-            // 
-            // tb_teamTotal
-            // 
-            this.tb_teamTotal.Location = new System.Drawing.Point(524, 46);
-            this.tb_teamTotal.Name = "tb_teamTotal";
-            this.tb_teamTotal.Size = new System.Drawing.Size(322, 44);
-            this.tb_teamTotal.TabIndex = 4;
-            // 
-            // tb_comparison
-            // 
-            this.tb_comparison.Location = new System.Drawing.Point(524, 139);
-            this.tb_comparison.Name = "tb_comparison";
-            this.tb_comparison.Size = new System.Drawing.Size(322, 44);
-            this.tb_comparison.TabIndex = 5;
-            // 
-            // tb_trivialStrategy
-            // 
-            this.tb_trivialStrategy.Enabled = false;
-            this.tb_trivialStrategy.Location = new System.Drawing.Point(524, 221);
-            this.tb_trivialStrategy.Name = "tb_trivialStrategy";
-            this.tb_trivialStrategy.Size = new System.Drawing.Size(322, 44);
-            this.tb_trivialStrategy.TabIndex = 6;
-            this.tb_trivialStrategy.Text = "76 000 kč";
-            // 
-            // tb_lowestScore
-            // 
-            this.tb_lowestScore.Location = new System.Drawing.Point(524, 312);
-            this.tb_lowestScore.Name = "tb_lowestScore";
-            this.tb_lowestScore.Size = new System.Drawing.Size(322, 44);
-            this.tb_lowestScore.TabIndex = 7;
-            this.tb_lowestScore.Text = "29 000 kč";
+            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chart2.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.chart2.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
+            chartArea1.AxisX.Interval = 2D;
+            chartArea1.AxisX.LineWidth = 2;
+            chartArea1.AxisX.Maximum = 50D;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisY.LineWidth = 2;
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
+            this.chart2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            legend1.Name = "Legend1";
+            this.chart2.Legends.Add(legend1);
+            this.chart2.Location = new System.Drawing.Point(23, 401);
+            this.chart2.Name = "chart2";
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.Blue;
+            series1.Legend = "Legend1";
+            series1.Name = "Vývoj požadavků";
+            this.chart2.Series.Add(series1);
+            this.chart2.Size = new System.Drawing.Size(1536, 360);
+            this.chart2.TabIndex = 31;
+            this.chart2.Text = "chart2";
+            title1.BackColor = System.Drawing.Color.Transparent;
+            title1.BorderColor = System.Drawing.Color.Transparent;
+            title1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title1.Name = "Vývoj celkových nákladů";
+            this.chart2.Titles.Add(title1);
             // 
             // Form1
             // 
@@ -680,6 +721,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tab_endGame.ResumeLayout(false);
             this.tab_endGame.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,6 +769,7 @@
         private System.Windows.Forms.TextBox tb_trivialStrategy;
         private System.Windows.Forms.TextBox tb_comparison;
         private System.Windows.Forms.TextBox tb_teamTotal;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
     }
 }
 
