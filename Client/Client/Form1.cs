@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace Client
 {
@@ -28,7 +30,9 @@ namespace Client
             _PORT = portNumber;
             _IP_ADDRESS = ipAddress;
             InitializeComponent();
-            
+
+            num_reqOut.Controls[0].Hide(); // hide arrows
+
             waitingTimer.Interval = 1000;
             waitingTimer.Enabled = false;
             waitingTimer.Elapsed += OnTimedEvent;
@@ -40,8 +44,8 @@ namespace Client
             {
                 try
                 {
-                    //_clientSocket.Connect(IPAddress.Loopback, _PORT);
-                    _clientSocket.Connect(_IP_ADDRESS, _PORT);
+                    _clientSocket.Connect(IPAddress.Loopback, _PORT);
+                    //_clientSocket.Connect(_IP_ADDRESS, _PORT);
                 }
                 catch (SocketException)
                 {
@@ -58,25 +62,38 @@ namespace Client
             Environment.Exit(0);
         }
         
+        private int stringToInt(string value)
+        {
+            return Int32.Parse(value);
+        }
+
+        private string intToString(int value)
+        {
+            return value.ToString();
+        }
 
         private void SendRequest()
         {
             try
-            {            
+            {
                 // pred odeslanim hodnot si upravim sklad a zakazky podle aktualni hodnoty v poli
-                int un_order = (int) num_unfulfilled_orders.Value;
-                int stock = (int) num_stock.Value;
-                int customerRequest = (int)num_in_req_box.Value;
+                //int un_order = (int) num_unfulfilled_orders.Value;
+                int un_order = (int)stringToInt(lbl_dluh.Text);
+                //int stock = (int) num_stock.Value;
+                int stock = (int)stringToInt(lbl_sklad.Text);
+                //int customerRequest = (int)num_in_req_box.Value;
+                int customerRequest = (int)stringToInt(lbl_reqIn.Text);
                 updateCLientStockAndUnfulfilledOrders(un_order, stock);
                 add2CostSum();
                 add2Chart(customerRequest);
                 _roundNumber++;
                 updateScore();            
 
-                Message m = new Message(_ROLE, (Int32)num_out_box.Value, (Int32)num_out_req_box.Value, _stock,_unfulfilledOrders ,-500);
+                Message m = new Message(_ROLE, (Int32)stringToInt(lbl_boxOut.Text), (Int32)num_reqOut.Value, _stock,_unfulfilledOrders ,-500);
                 byte[] buffer = m.getMessageByteArray();
                 // vymazani vsech vstupnich poli (aby doslo ke zmene -> zavola se metoda)
                 resetAllCells();
+                hideControls();
                 //posladni dat serveru
                 _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
             }
@@ -125,7 +142,7 @@ namespace Client
 
             if (roundCode == -300) // start waiting
             {
-                waitingLoop();
+                waitingLoop(); // start timer
 
                 this.lbl_status.Invoke(new MethodInvoker(delegate ()
                 { lbl_status.Text = "(Čekáš na ostatní hráče)"; }));
@@ -134,7 +151,7 @@ namespace Client
             }
             else if (roundCode == -200) // new round
             {
-                stopWaiting();
+                stopWaiting(); // stop timer 
                 setRole(role);            
                 EnableControls();
                 updateRound();
@@ -142,12 +159,21 @@ namespace Client
 
                 this.lbl_status.Invoke(new MethodInvoker(delegate ()
                 { lbl_status.Text = "(Nové kolo)"; }));
-
+                showControls();
+                /*
                 this.num_in_req_box.Invoke(new MethodInvoker(delegate ()
                 { num_in_req_box.Value = reqInOut; }));
 
                 this.num_in_box.Invoke(new MethodInvoker(delegate ()
                 { num_in_box.Value = boxInOut; }));
+                */
+
+                this.lbl_boxIn.Invoke(new MethodInvoker(delegate ()
+                { lbl_boxIn.Text = intToString(boxInOut); }));
+
+                this.lbl_reqIn.Invoke(new MethodInvoker(delegate ()
+                { lbl_reqIn.Text = intToString(reqInOut); }));
+
 
             } else if (roundCode == -900) // close game
             {
@@ -163,9 +189,33 @@ namespace Client
             }
         }
 
+        void hideControls()
+        {
+            this.btn_send.Invoke(new MethodInvoker(delegate ()
+            { btn_send.Visible = false; }));
+
+            this.btn_increase.Invoke(new MethodInvoker(delegate ()
+            { btn_increase.Visible = false; }));
+
+            this.btn_decrease.Invoke(new MethodInvoker(delegate ()
+            { btn_decrease.Visible = false; }));
+        }
+
+        void showControls()
+        {
+            this.btn_send.Invoke(new MethodInvoker(delegate ()
+            { btn_send.Visible = true; }));
+
+            this.btn_increase.Invoke(new MethodInvoker(delegate ()
+            { btn_increase.Visible = true; }));
+
+            this.btn_decrease.Invoke(new MethodInvoker(delegate ()
+            { btn_decrease.Visible = true; }));
+        }
+
         private void setRole(int role)
         {
-            if(role >=0 & role <= 3)
+            if(role >=0 & role <= 10)
             {
                 _ROLE = role;
             }          
@@ -184,27 +234,37 @@ namespace Client
         }
 
         private void disableControls()
-        {            
+        {
+            /*         
             this.num_out_box.Invoke(new MethodInvoker(delegate ()
             { num_out_box.Value = 0; }));
-
-            this.num_out_req_box.Invoke(new MethodInvoker(delegate ()
-            { num_out_req_box.Value = 0; }));
-
+           
+            this.num_reqOut.Invoke(new MethodInvoker(delegate ()
+            { num_reqOut.Value = 0; }));
+            
             this.num_out_box.Invoke(new MethodInvoker(delegate ()
             { num_out_box.Enabled = false; }));
 
-            this.num_out_req_box.Invoke(new MethodInvoker(delegate ()
-            { num_out_req_box.Enabled = false; }));
+            this.num_reqOut.Invoke(new MethodInvoker(delegate ()
+            { num_reqOut.Enabled = false; }));
+            */
+
+            this.num_reqOut.Invoke(new MethodInvoker(delegate ()
+            { num_reqOut.Enabled = false; }));
+
+            this.num_reqOut.Invoke(new MethodInvoker(delegate ()
+            { num_reqOut.Value = 1; }));
+
         }
 
         private void EnableControls()
         {
+            /*
             this.num_out_box.Invoke(new MethodInvoker(delegate ()
             { num_out_box.Enabled = true; }));
-
-            this.num_out_req_box.Invoke(new MethodInvoker(delegate ()
-            { num_out_req_box.Enabled = true; }));
+            */
+            this.num_reqOut.Invoke(new MethodInvoker(delegate ()
+            { num_reqOut.Enabled = true; }));
         }
 
         private void setScreenLayout(int role)
@@ -290,26 +350,49 @@ namespace Client
 
         private void btn_send_Click(object sender, EventArgs e)
         {
-            if (num_out_box.Value != 0 && num_out_req_box.Value != 0 && checkCorrectMove())         
+            /*
+            if (num_out_box.Value != 0 && num_reqOut.Value != 0 && checkCorrectMove())         
             {
                 SendRequest();
                 disableControls();
                 ReceiveResponse();
             }
+            */
+
+            if (num_reqOut.Value != 0 && checkCorrectMove())
+            {
+                SendRequest();
+                disableControls();
+                ReceiveResponse();
+            }
+
+
         }
 
         private void add2Stock(Int32 barrelCount)  // prichozi hodnota z boxIn
         {
             _stock += barrelCount;
+            /*
             this.num_stock.Invoke(new MethodInvoker(delegate ()
-            { num_stock.Value = _stock; }));
+            { num_stock.Value = _stock; }));*/
+            this.lbl_sklad.Invoke(new MethodInvoker(delegate ()
+            { lbl_sklad.Text = intToString(_stock); }));
+
         }
 
         private void add2unfulfilledOrders(Int32 barrelCount)  // prichozi hodnota z boxIn
         {
+            /*
             _unfulfilledOrders += barrelCount;
+            string uOrders = intToString(_unfulfilledOrders);
             this.num_unfulfilled_orders.Invoke(new MethodInvoker(delegate ()
             { num_unfulfilled_orders.Value = _unfulfilledOrders; }));
+            */
+
+            _unfulfilledOrders += barrelCount;
+            string uOrders = intToString(_unfulfilledOrders);
+            this.lbl_dluh.Invoke(new MethodInvoker(delegate ()
+            { lbl_dluh.Text = uOrders; }));
         }
 
         private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
@@ -320,7 +403,16 @@ namespace Client
         
         private bool checkCorrectMove()
         {
+            /*
             if(num_stock.Value == 0 || num_unfulfilled_orders.Value == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }*/
+            if (lbl_sklad.Text == "0" || lbl_dluh.Text == "0")
             {
                 return true;
             }
@@ -332,10 +424,16 @@ namespace Client
 
         private void resetAllCells()
         {
+            /*
             num_in_box.Value = 0;
             num_out_box.Value = 0;
             num_in_req_box.Value = 0;
-            num_out_req_box.Value = 0;
+            num_reqOut.Value = 0;
+            */
+            lbl_boxIn.Text = "0";
+            lbl_boxOut.Text = "0";
+            lbl_reqIn.Text = "0";
+            num_reqOut.Value = 1;
         }
 
         private void updateCLientStockAndUnfulfilledOrders(Int32 un_orders, Int32 stock)
@@ -344,16 +442,40 @@ namespace Client
             _stock = stock;
         }
 
-        private void num_in_box_ValueChanged(object sender, EventArgs e)
+        private void lbl_boxIn_TextChanged(object sender, EventArgs e)
+        {
+            int inBox = stringToInt(lbl_boxIn.Text);
+            add2Stock((Int32)inBox); // pridej prichozi barely a zobraz
+
+            if (lbl_reqIn.Text != intToString(0))
+            {
+                setMaxBoxOut();
+            }
+            
+        }
+
+        private void lbl_reqIn_TextChanged(object sender, EventArgs e)
+        {
+            int inReq = stringToInt(lbl_reqIn.Text);
+            add2unfulfilledOrders((Int32)inReq); // pridej prichozi barely a zobraz
+
+            if (lbl_boxIn.Text != intToString(0))
+            {
+                setMaxBoxOut();
+            }
+        }
+
+        // bude obsolete
+        private void num_in_box_ValueChanged(object sender, EventArgs e) 
         {
             add2Stock((Int32)num_in_box.Value); // pridej prichozi barely a zobraz
         }
-
+        // bude obsolete
         private void num_in_req_box_ValueChanged(object sender, EventArgs e)
         {
             add2unfulfilledOrders((Int32)num_in_req_box.Value); // pridej prichozi pozadavek a zobraz
         }
-
+        // bude obsolete
         private void num_out_box_ValueChanged(object sender, EventArgs e)
         {
             int sumOfOrders = (int) num_unfulfilled_orders.Value; // suma pozadavku
@@ -368,6 +490,29 @@ namespace Client
             num_unfulfilled_orders.Value = _unfulfilledOrders;
             num_stock.Value -= num_out_box.Value;
             num_unfulfilled_orders.Value-= num_out_box.Value;
+
+        }
+
+        private void setMaxBoxOut()
+        {
+            int sumOfOrders = stringToInt(lbl_dluh.Text); // suma pozadavku
+            int stock = stringToInt(lbl_sklad.Text);
+            int minValue = Math.Min(_stock, _unfulfilledOrders);
+
+            string minVal = intToString(minValue);
+            this.lbl_boxOut.Invoke(new MethodInvoker(delegate ()
+            { lbl_boxOut.Text = minVal; }));
+
+            int newOrders = sumOfOrders - minValue;
+            int newStock = stock - minValue;
+
+            this.lbl_sklad.Invoke(new MethodInvoker(delegate ()
+            { lbl_sklad.Text = intToString(newStock); }));
+
+            this.lbl_dluh.Invoke(new MethodInvoker(delegate ()
+            { lbl_dluh.Text = intToString(newOrders); }));
+
+            updateCLientStockAndUnfulfilledOrders(newOrders, newStock);
 
         }
 
@@ -438,7 +583,7 @@ namespace Client
 
         private void updateRound()
         {
-            this.tb_score.Invoke(new MethodInvoker(delegate ()
+            this.tb_round.Invoke(new MethodInvoker(delegate ()
             { tb_round.Text = _roundNumber.ToString(); }));
         }
 
@@ -472,6 +617,22 @@ namespace Client
         private void button1_Click(object sender, EventArgs e)
         {
             endGameOccur();
+        }
+
+        private void btn_decrease_Click(object sender, EventArgs e)
+        {
+            if(num_reqOut.Value > num_reqOut.Minimum)
+            {
+                num_reqOut.Value--;
+            }
+        }
+
+        private void btn_increase_Click(object sender, EventArgs e)
+        {
+            if (num_reqOut.Value < num_reqOut.Maximum)
+            {
+                num_reqOut.Value++;
+            }
         }
     }
 }
