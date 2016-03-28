@@ -31,11 +31,12 @@ namespace Client
             _IP_ADDRESS = ipAddress;
             InitializeComponent();
 
-            num_reqOut.Controls[0].Hide(); // hide arrows
+            //num_reqOut.Controls[0].Hide(); // hide arrows
 
             waitingTimer.Interval = 1000;
             waitingTimer.Enabled = false;
             waitingTimer.Elapsed += OnTimedEvent;
+
         }
 
         private void ConnectToServer()
@@ -87,9 +88,10 @@ namespace Client
                 add2CostSum();
                 add2Chart(customerRequest);
                 _roundNumber++;
-                updateScore();            
+                updateScore();
 
-                Message m = new Message(_ROLE, (Int32)stringToInt(lbl_boxOut.Text), (Int32)num_reqOut.Value, _stock,_unfulfilledOrders ,-500);
+                //Message m = new Message(_ROLE, (Int32)stringToInt(lbl_boxOut.Text), (Int32)num_reqOut.Value, _stock,_unfulfilledOrders ,-500);
+                Message m = new Message(_ROLE, (Int32)stringToInt(lbl_boxOut.Text), (Int32)stringToInt(lbl_reqOut.Text), _stock, _unfulfilledOrders, -500);
                 byte[] buffer = m.getMessageByteArray();
                 // vymazani vsech vstupnich poli (aby doslo ke zmene -> zavola se metoda)
                 resetAllCells();
@@ -145,8 +147,9 @@ namespace Client
                 waitingLoop(); // start timer
 
                 this.lbl_status.Invoke(new MethodInvoker(delegate ()
-                { lbl_status.Text = "(Čekáš na ostatní hráče)"; }));
+                { lbl_status.Text = "Čekáš na ostatní hráče"; }));
 
+                //groupBox_panel.Visible = false;
 
             }
             else if (roundCode == -200) // new round
@@ -158,7 +161,7 @@ namespace Client
                 updateScore();
 
                 this.lbl_status.Invoke(new MethodInvoker(delegate ()
-                { lbl_status.Text = "(Nové kolo)"; }));
+                { lbl_status.Text = "Nové kolo"; }));
                 showControls();
                 /*
                 this.num_in_req_box.Invoke(new MethodInvoker(delegate ()
@@ -191,6 +194,7 @@ namespace Client
 
         void hideControls()
         {
+            /*
             this.btn_send.Invoke(new MethodInvoker(delegate ()
             { btn_send.Visible = false; }));
 
@@ -199,10 +203,33 @@ namespace Client
 
             this.btn_decrease.Invoke(new MethodInvoker(delegate ()
             { btn_decrease.Visible = false; }));
+            */
+
+            this.gb_boxIn.Invoke(new MethodInvoker(delegate ()
+            { gb_boxIn.Visible = false; }));
+
+            this.gb_boxOut.Invoke(new MethodInvoker(delegate ()
+            { gb_boxOut.Visible = false; }));
+
+            this.gb_reqIn.Invoke(new MethodInvoker(delegate ()
+            { gb_reqIn.Visible = false; }));
+
+            this.gb_reqOut.Invoke(new MethodInvoker(delegate ()
+            { gb_reqOut.Visible = false; }));
+
+            this.gb_sklad.Invoke(new MethodInvoker(delegate ()
+            { gb_sklad.Visible = false; }));
+
+            this.gb_dluh.Invoke(new MethodInvoker(delegate ()
+            { gb_dluh.Visible = false; }));
+
+            this.lbl_status.Invoke(new MethodInvoker(delegate ()
+            { lbl_status.Visible = true; }));
         }
 
         void showControls()
         {
+            /*
             this.btn_send.Invoke(new MethodInvoker(delegate ()
             { btn_send.Visible = true; }));
 
@@ -211,6 +238,29 @@ namespace Client
 
             this.btn_decrease.Invoke(new MethodInvoker(delegate ()
             { btn_decrease.Visible = true; }));
+            */
+
+            this.gb_boxIn.Invoke(new MethodInvoker(delegate ()
+            { gb_boxIn.Visible = true; }));
+
+            this.gb_boxOut.Invoke(new MethodInvoker(delegate ()
+            { gb_boxOut.Visible = true; }));
+
+            this.gb_reqIn.Invoke(new MethodInvoker(delegate ()
+            { gb_reqIn.Visible = true; }));
+
+            this.gb_reqOut.Invoke(new MethodInvoker(delegate ()
+            { gb_reqOut.Visible = true; }));
+
+            this.gb_sklad.Invoke(new MethodInvoker(delegate ()
+            { gb_sklad.Visible = true; }));
+
+            this.gb_dluh.Invoke(new MethodInvoker(delegate ()
+            { gb_dluh.Visible = true; }));
+
+            this.lbl_status.Invoke(new MethodInvoker(delegate ()
+            { lbl_status.Visible = false; }));
+
         }
 
         private void setRole(int role)
@@ -247,13 +297,17 @@ namespace Client
 
             this.num_reqOut.Invoke(new MethodInvoker(delegate ()
             { num_reqOut.Enabled = false; }));
-            */
+            
 
             this.num_reqOut.Invoke(new MethodInvoker(delegate ()
             { num_reqOut.Enabled = false; }));
 
             this.num_reqOut.Invoke(new MethodInvoker(delegate ()
             { num_reqOut.Value = 1; }));
+            */
+
+            this.lbl_reqOut.Invoke(new MethodInvoker(delegate ()
+            { lbl_reqOut.Text = intToString(1); }));
 
         }
 
@@ -262,9 +316,10 @@ namespace Client
             /*
             this.num_out_box.Invoke(new MethodInvoker(delegate ()
             { num_out_box.Enabled = true; }));
-            */
+            
             this.num_reqOut.Invoke(new MethodInvoker(delegate ()
             { num_reqOut.Enabled = true; }));
+            */
         }
 
         private void setScreenLayout(int role)
@@ -272,8 +327,14 @@ namespace Client
             switch (_ROLE)
             {
                 case 0:
+                    
                     this.lbl_role.Invoke(new MethodInvoker(delegate ()
                     { lbl_role.Text = "Továrna"; }));
+                    
+                    /*
+                    this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
+                    { groupBox_panel.Text = "Továrna"; }));
+                    */
 
                     this.pictureBox.Invoke(new MethodInvoker(delegate ()
                     { pictureBox.Image = global::Client.Properties.Resources.new_Background_11; }));
@@ -346,6 +407,12 @@ namespace Client
             loadConfigurationRequest();
             ReceiveResponse();
             setScreenLayout(_ROLE);
+
+            this.tab_endGame.Invoke(new MethodInvoker(delegate ()
+            { tab_endGame.Text = ""; }));
+
+            this.lbl_reqOut.Invoke(new MethodInvoker(delegate ()
+            { lbl_reqOut.Text = "1"; }));
         }
 
         private void btn_send_Click(object sender, EventArgs e)
@@ -359,7 +426,7 @@ namespace Client
             }
             */
 
-            if (num_reqOut.Value != 0 && checkCorrectMove())
+            if (stringToInt(lbl_reqOut.Text) != 0 && checkCorrectMove())
             {
                 SendRequest();
                 disableControls();
@@ -433,7 +500,8 @@ namespace Client
             lbl_boxIn.Text = "0";
             lbl_boxOut.Text = "0";
             lbl_reqIn.Text = "0";
-            num_reqOut.Value = 1;
+            lbl_reqOut.Text = "0";
+            //num_reqOut.Value = 1;
         }
 
         private void updateCLientStockAndUnfulfilledOrders(Int32 un_orders, Int32 stock)
@@ -464,7 +532,7 @@ namespace Client
                 setMaxBoxOut();
             }
         }
-
+        /*
         // bude obsolete
         private void num_in_box_ValueChanged(object sender, EventArgs e) 
         {
@@ -492,6 +560,7 @@ namespace Client
             num_unfulfilled_orders.Value-= num_out_box.Value;
 
         }
+        */
 
         private void setMaxBoxOut()
         {
@@ -612,6 +681,9 @@ namespace Client
             //tab_main.SelectedTab = tab_endGame;
             this.tab_main.Invoke(new MethodInvoker(delegate ()
             { tab_main.SelectedTab = tab_endGame; }));
+
+            this.tab_endGame.Invoke(new MethodInvoker(delegate ()
+            { tab_endGame.Text = "Výsledek hry"; }));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -621,17 +693,34 @@ namespace Client
 
         private void btn_decrease_Click(object sender, EventArgs e)
         {
+            /*
             if(num_reqOut.Value > num_reqOut.Minimum)
             {
                 num_reqOut.Value--;
+            }
+            */
+            if(stringToInt(lbl_reqOut.Text) > 1)
+            {
+                int val = stringToInt(lbl_reqOut.Text);
+                val--;
+                lbl_reqOut.Text = intToString(val);
             }
         }
 
         private void btn_increase_Click(object sender, EventArgs e)
         {
+            /*
             if (num_reqOut.Value < num_reqOut.Maximum)
             {
                 num_reqOut.Value++;
+            }
+            */
+
+            if (stringToInt(lbl_reqOut.Text) < 1000)
+            {
+                int val = stringToInt(lbl_reqOut.Text);
+                val++;
+                lbl_reqOut.Text = intToString(val);
             }
         }
     }
