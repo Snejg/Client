@@ -118,14 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bg_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="road3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\road3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="final_back_role1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_role1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="new_Background_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new_Background_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="road2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\road2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="final_back_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="beer_stock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\beer_stock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,23 +142,32 @@
   <data name="new_Background_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new_Background_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="final_back_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="all2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\all2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="final_back_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="handshake" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\handshake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="final_back_112" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_112.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pokus_factory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pokus_factory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bg_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg_14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="final_back_111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,11 +175,11 @@
   <data name="truck with bottles2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\truck with bottles2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="new_Background_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new_Background_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="final_back_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="env" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\env.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="final_back_1113" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_1113.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_41" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_41.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,14 +187,17 @@
   <data name="bg_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="road2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\road2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bg_22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg_21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="new_Background_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new_Background_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="final_back_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,17 +205,29 @@
   <data name="env_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\env_open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="road3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\road3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="final_back_15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="final_back_role3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_role3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="all1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\all1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="all" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\all.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="final_back_role2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_role2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bg_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bg_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="truck with bottles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\truck with bottles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="final_back_1111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_1111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="factory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\factory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,19 +238,34 @@
   <data name="beer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\beer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="factory-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\factory-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="all" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\all.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\truck.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="final_back_role21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_role21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="factory1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\factory1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bg_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bg_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="env" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\env.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new_Background_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new_Background_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="road21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\road21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="truck" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\truck.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="final_back_1112" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_1112.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="factory-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\factory-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="final_back_role4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\final_back_role4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

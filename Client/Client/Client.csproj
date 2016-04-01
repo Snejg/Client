@@ -186,6 +186,54 @@
   <ItemGroup>
     <None Include="Resources\truck.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_1111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_1112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_1113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_role1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_role2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_role21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_role3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\final_back_role4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

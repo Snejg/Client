@@ -28,44 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title15 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title16 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.btn_exit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_score = new System.Windows.Forms.TextBox();
             this.tab_main = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox_panel = new System.Windows.Forms.GroupBox();
+            this.lbl_role = new System.Windows.Forms.Label();
             this.gb_boxIn = new System.Windows.Forms.GroupBox();
             this.lbl_boxIn = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.gb_boxOut = new System.Windows.Forms.GroupBox();
             this.lbl_boxOut = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.gb_dluh = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_dluh = new System.Windows.Forms.Label();
             this.gb_reqIn = new System.Windows.Forms.GroupBox();
             this.lbl_reqIn = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gb_reqOut = new System.Windows.Forms.GroupBox();
             this.btn_decrease = new System.Windows.Forms.Button();
             this.btn_increase = new System.Windows.Forms.Button();
             this.btn_send = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbl_reqOut = new System.Windows.Forms.Label();
             this.gb_sklad = new System.Windows.Forms.GroupBox();
-            this.pb_stock = new System.Windows.Forms.PictureBox();
             this.lbl_sklad = new System.Windows.Forms.Label();
             this.lbl_status = new System.Windows.Forms.Label();
-            this.lbl_role = new System.Windows.Forms.Label();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -79,32 +75,36 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tb_round = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.lbl_reqOut = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_stock = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.tab_main.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox_panel.SuspendLayout();
             this.gb_boxIn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.gb_boxOut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.gb_dluh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.gb_reqIn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gb_reqOut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gb_sklad.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_stock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tab_endGame.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_stock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_exit
@@ -123,7 +123,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(572, 8);
+            this.label9.Location = new System.Drawing.Point(501, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(142, 37);
             this.label9.TabIndex = 32;
@@ -134,7 +134,7 @@
             this.tb_score.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_score.Enabled = false;
             this.tb_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tb_score.Location = new System.Drawing.Point(711, 9);
+            this.tb_score.Location = new System.Drawing.Point(649, 12);
             this.tb_score.Name = "tb_score";
             this.tb_score.ReadOnly = true;
             this.tb_score.Size = new System.Drawing.Size(104, 29);
@@ -157,6 +157,27 @@
             this.tab_main.Size = new System.Drawing.Size(1000, 708);
             this.tab_main.TabIndex = 1;
             this.tab_main.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tab_main_Selecting);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.richTextBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 46);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(992, 658);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Pravidla";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(986, 652);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // tabPage1
             // 
@@ -187,19 +208,34 @@
             this.groupBox_panel.Controls.Add(this.gb_sklad);
             this.groupBox_panel.Controls.Add(this.lbl_status);
             this.groupBox_panel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox_panel.Location = new System.Drawing.Point(60, 38);
+            this.groupBox_panel.Location = new System.Drawing.Point(81, 6);
             this.groupBox_panel.Name = "groupBox_panel";
-            this.groupBox_panel.Size = new System.Drawing.Size(696, 378);
+            this.groupBox_panel.Size = new System.Drawing.Size(678, 407);
             this.groupBox_panel.TabIndex = 30;
             this.groupBox_panel.TabStop = false;
             // 
+            // lbl_role
+            // 
+            this.lbl_role.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_role.AutoSize = true;
+            this.lbl_role.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_role.ForeColor = System.Drawing.Color.White;
+            this.lbl_role.Location = new System.Drawing.Point(221, 0);
+            this.lbl_role.Name = "lbl_role";
+            this.lbl_role.Size = new System.Drawing.Size(243, 37);
+            this.lbl_role.TabIndex = 35;
+            this.lbl_role.Text = "Malo-obchodník";
+            // 
             // gb_boxIn
             // 
+            this.gb_boxIn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_boxIn.Controls.Add(this.lbl_boxIn);
             this.gb_boxIn.Controls.Add(this.pictureBox5);
-            this.gb_boxIn.Location = new System.Drawing.Point(467, 241);
+            this.gb_boxIn.Location = new System.Drawing.Point(476, 274);
             this.gb_boxIn.Name = "gb_boxIn";
-            this.gb_boxIn.Size = new System.Drawing.Size(223, 127);
+            this.gb_boxIn.Size = new System.Drawing.Size(196, 127);
             this.gb_boxIn.TabIndex = 56;
             this.gb_boxIn.TabStop = false;
             this.gb_boxIn.Text = "Příchozí bedny";
@@ -210,31 +246,20 @@
             this.lbl_boxIn.BackColor = System.Drawing.Color.Black;
             this.lbl_boxIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbl_boxIn.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbl_boxIn.Location = new System.Drawing.Point(98, 30);
+            this.lbl_boxIn.Location = new System.Drawing.Point(78, 30);
             this.lbl_boxIn.Name = "lbl_boxIn";
             this.lbl_boxIn.Size = new System.Drawing.Size(47, 51);
             this.lbl_boxIn.TabIndex = 54;
             this.lbl_boxIn.Text = "0";
             this.lbl_boxIn.TextChanged += new System.EventHandler(this.lbl_boxIn_TextChanged);
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox5.Image = global::Client.Properties.Resources.truck;
-            this.pictureBox5.Location = new System.Drawing.Point(26, 24);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(177, 97);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 50;
-            this.pictureBox5.TabStop = false;
-            // 
             // gb_boxOut
             // 
             this.gb_boxOut.Controls.Add(this.lbl_boxOut);
             this.gb_boxOut.Controls.Add(this.pictureBox4);
-            this.gb_boxOut.Location = new System.Drawing.Point(10, 241);
+            this.gb_boxOut.Location = new System.Drawing.Point(6, 274);
             this.gb_boxOut.Name = "gb_boxOut";
-            this.gb_boxOut.Size = new System.Drawing.Size(223, 127);
+            this.gb_boxOut.Size = new System.Drawing.Size(200, 127);
             this.gb_boxOut.TabIndex = 55;
             this.gb_boxOut.TabStop = false;
             this.gb_boxOut.Text = "Odchozí bedny";
@@ -251,39 +276,16 @@
             this.lbl_boxOut.TabIndex = 54;
             this.lbl_boxOut.Text = "0";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox4.Image = global::Client.Properties.Resources.truck;
-            this.pictureBox4.Location = new System.Drawing.Point(6, 24);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(177, 94);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 50;
-            this.pictureBox4.TabStop = false;
-            // 
             // gb_dluh
             // 
             this.gb_dluh.Controls.Add(this.pictureBox3);
             this.gb_dluh.Controls.Add(this.lbl_dluh);
-            this.gb_dluh.Location = new System.Drawing.Point(242, 133);
+            this.gb_dluh.Location = new System.Drawing.Point(228, 110);
             this.gb_dluh.Name = "gb_dluh";
-            this.gb_dluh.Size = new System.Drawing.Size(219, 103);
+            this.gb_dluh.Size = new System.Drawing.Size(228, 103);
             this.gb_dluh.TabIndex = 53;
             this.gb_dluh.TabStop = false;
             this.gb_dluh.Text = "Dluh (100 Kč/ks)";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pictureBox3.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(6, 30);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(64, 66);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 30;
-            this.pictureBox3.TabStop = false;
             // 
             // lbl_dluh
             // 
@@ -291,7 +293,7 @@
             this.lbl_dluh.BackColor = System.Drawing.Color.Transparent;
             this.lbl_dluh.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbl_dluh.ForeColor = System.Drawing.Color.Red;
-            this.lbl_dluh.Location = new System.Drawing.Point(90, 27);
+            this.lbl_dluh.Location = new System.Drawing.Point(76, 30);
             this.lbl_dluh.Name = "lbl_dluh";
             this.lbl_dluh.Size = new System.Drawing.Size(69, 73);
             this.lbl_dluh.TabIndex = 42;
@@ -301,9 +303,9 @@
             // 
             this.gb_reqIn.Controls.Add(this.lbl_reqIn);
             this.gb_reqIn.Controls.Add(this.pictureBox2);
-            this.gb_reqIn.Location = new System.Drawing.Point(10, 40);
+            this.gb_reqIn.Location = new System.Drawing.Point(6, 28);
             this.gb_reqIn.Name = "gb_reqIn";
-            this.gb_reqIn.Size = new System.Drawing.Size(223, 196);
+            this.gb_reqIn.Size = new System.Drawing.Size(200, 196);
             this.gb_reqIn.TabIndex = 52;
             this.gb_reqIn.TabStop = false;
             this.gb_reqIn.Text = "Požadavek";
@@ -321,26 +323,18 @@
             this.lbl_reqIn.Text = "0";
             this.lbl_reqIn.TextChanged += new System.EventHandler(this.lbl_reqIn_TextChanged);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 36);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
             // gb_reqOut
             // 
+            this.gb_reqOut.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_reqOut.Controls.Add(this.pictureBox1);
             this.gb_reqOut.Controls.Add(this.btn_decrease);
             this.gb_reqOut.Controls.Add(this.btn_increase);
             this.gb_reqOut.Controls.Add(this.btn_send);
             this.gb_reqOut.Controls.Add(this.lbl_reqOut);
-            this.gb_reqOut.Location = new System.Drawing.Point(467, 40);
+            this.gb_reqOut.Location = new System.Drawing.Point(476, 28);
             this.gb_reqOut.Name = "gb_reqOut";
-            this.gb_reqOut.Size = new System.Drawing.Size(223, 196);
+            this.gb_reqOut.Size = new System.Drawing.Size(196, 196);
             this.gb_reqOut.TabIndex = 49;
             this.gb_reqOut.TabStop = false;
             this.gb_reqOut.Text = "Požaduji";
@@ -348,7 +342,7 @@
             // btn_decrease
             // 
             this.btn_decrease.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_decrease.Location = new System.Drawing.Point(165, 140);
+            this.btn_decrease.Location = new System.Drawing.Point(138, 142);
             this.btn_decrease.Name = "btn_decrease";
             this.btn_decrease.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_decrease.Size = new System.Drawing.Size(52, 48);
@@ -360,7 +354,7 @@
             // btn_increase
             // 
             this.btn_increase.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_increase.Location = new System.Drawing.Point(165, 18);
+            this.btn_increase.Location = new System.Drawing.Point(138, 18);
             this.btn_increase.Name = "btn_increase";
             this.btn_increase.Size = new System.Drawing.Size(52, 48);
             this.btn_increase.TabIndex = 46;
@@ -374,49 +368,37 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_send.BackColor = System.Drawing.Color.Transparent;
             this.btn_send.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_send.Location = new System.Drawing.Point(6, 140);
+            this.btn_send.Location = new System.Drawing.Point(6, 142);
             this.btn_send.Name = "btn_send";
             this.btn_send.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btn_send.Size = new System.Drawing.Size(139, 48);
+            this.btn_send.Size = new System.Drawing.Size(115, 48);
             this.btn_send.TabIndex = 2;
             this.btn_send.Text = "Odeslat";
             this.btn_send.UseVisualStyleBackColor = false;
             this.btn_send.Click += new System.EventHandler(this.btn_send_Click);
             // 
-            // pictureBox1
+            // lbl_reqOut
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 30);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(67, 45);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
+            this.lbl_reqOut.AutoSize = true;
+            this.lbl_reqOut.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_reqOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lbl_reqOut.ForeColor = System.Drawing.Color.Red;
+            this.lbl_reqOut.Location = new System.Drawing.Point(74, 64);
+            this.lbl_reqOut.Name = "lbl_reqOut";
+            this.lbl_reqOut.Size = new System.Drawing.Size(69, 73);
+            this.lbl_reqOut.TabIndex = 43;
+            this.lbl_reqOut.Text = "0";
             // 
             // gb_sklad
             // 
             this.gb_sklad.Controls.Add(this.pb_stock);
             this.gb_sklad.Controls.Add(this.lbl_sklad);
-            this.gb_sklad.Location = new System.Drawing.Point(242, 241);
+            this.gb_sklad.Location = new System.Drawing.Point(228, 246);
             this.gb_sklad.Name = "gb_sklad";
-            this.gb_sklad.Size = new System.Drawing.Size(219, 103);
+            this.gb_sklad.Size = new System.Drawing.Size(228, 103);
             this.gb_sklad.TabIndex = 48;
             this.gb_sklad.TabStop = false;
             this.gb_sklad.Text = "Sklad (50 Kč/ks)";
-            // 
-            // pb_stock
-            // 
-            this.pb_stock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pb_stock.Image = ((System.Drawing.Image)(resources.GetObject("pb_stock.Image")));
-            this.pb_stock.ImageLocation = "";
-            this.pb_stock.Location = new System.Drawing.Point(8, 24);
-            this.pb_stock.Margin = new System.Windows.Forms.Padding(3, 100, 3, 3);
-            this.pb_stock.Name = "pb_stock";
-            this.pb_stock.Size = new System.Drawing.Size(47, 73);
-            this.pb_stock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_stock.TabIndex = 27;
-            this.pb_stock.TabStop = false;
             // 
             // lbl_sklad
             // 
@@ -424,7 +406,7 @@
             this.lbl_sklad.BackColor = System.Drawing.Color.Transparent;
             this.lbl_sklad.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbl_sklad.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbl_sklad.Location = new System.Drawing.Point(90, 21);
+            this.lbl_sklad.Location = new System.Drawing.Point(69, 24);
             this.lbl_sklad.Name = "lbl_sklad";
             this.lbl_sklad.Size = new System.Drawing.Size(69, 73);
             this.lbl_sklad.TabIndex = 43;
@@ -440,33 +422,6 @@
             this.lbl_status.Size = new System.Drawing.Size(538, 55);
             this.lbl_status.TabIndex = 38;
             this.lbl_status.Text = "Čekáš na ostatní hráče";
-            // 
-            // lbl_role
-            // 
-            this.lbl_role.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_role.AutoSize = true;
-            this.lbl_role.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl_role.ForeColor = System.Drawing.Color.White;
-            this.lbl_role.Location = new System.Drawing.Point(264, 0);
-            this.lbl_role.Name = "lbl_role";
-            this.lbl_role.Size = new System.Drawing.Size(197, 37);
-            this.lbl_role.TabIndex = 35;
-            this.lbl_role.Text = "Hračská role";
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.BackColor = System.Drawing.Color.Silver;
-            this.pictureBox.Image = global::Client.Properties.Resources.new_Background_4;
-            this.pictureBox.Location = new System.Drawing.Point(2, 6);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(986, 648);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 31;
-            this.pictureBox.TabStop = false;
             // 
             // tabPage2
             // 
@@ -498,33 +453,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart2.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart2.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea11.AxisX.Interval = 2D;
-            chartArea11.AxisX.LineWidth = 2;
-            chartArea11.AxisX.Maximum = 50D;
-            chartArea11.AxisX.Minimum = 0D;
-            chartArea11.AxisY.LineWidth = 2;
-            chartArea11.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea11);
+            chartArea15.AxisX.Interval = 2D;
+            chartArea15.AxisX.LineWidth = 2;
+            chartArea15.AxisX.Maximum = 50D;
+            chartArea15.AxisX.Minimum = 0D;
+            chartArea15.AxisY.LineWidth = 2;
+            chartArea15.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea15);
             this.chart2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend11.Name = "Legend1";
-            this.chart2.Legends.Add(legend11);
+            legend15.Name = "Legend1";
+            this.chart2.Legends.Add(legend15);
             this.chart2.Location = new System.Drawing.Point(23, 345);
             this.chart2.Name = "chart2";
-            series11.BorderWidth = 3;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Color = System.Drawing.Color.Blue;
-            series11.Legend = "Legend1";
-            series11.Name = "Vývoj požadavků";
-            this.chart2.Series.Add(series11);
+            series15.BorderWidth = 3;
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series15.Color = System.Drawing.Color.Blue;
+            series15.Legend = "Legend1";
+            series15.Name = "Vývoj požadavků";
+            this.chart2.Series.Add(series15);
             this.chart2.Size = new System.Drawing.Size(960, 284);
             this.chart2.TabIndex = 31;
             this.chart2.Text = "chart2";
-            title11.BackColor = System.Drawing.Color.Transparent;
-            title11.BorderColor = System.Drawing.Color.Transparent;
-            title11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title11.Name = "Vývoj celkových nákladů";
-            this.chart2.Titles.Add(title11);
+            title15.BackColor = System.Drawing.Color.Transparent;
+            title15.BorderColor = System.Drawing.Color.Transparent;
+            title15.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title15.Name = "Vývoj celkových nákladů";
+            this.chart2.Titles.Add(title15);
             // 
             // chart1
             // 
@@ -533,33 +488,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart1.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea12.AxisX.Interval = 2D;
-            chartArea12.AxisX.LineWidth = 2;
-            chartArea12.AxisX.Maximum = 50D;
-            chartArea12.AxisX.Minimum = 0D;
-            chartArea12.AxisY.LineWidth = 2;
-            chartArea12.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea12);
+            chartArea16.AxisX.Interval = 2D;
+            chartArea16.AxisX.LineWidth = 2;
+            chartArea16.AxisX.Maximum = 50D;
+            chartArea16.AxisX.Minimum = 0D;
+            chartArea16.AxisY.LineWidth = 2;
+            chartArea16.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea16);
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend12.Name = "Legend1";
-            this.chart1.Legends.Add(legend12);
+            legend16.Name = "Legend1";
+            this.chart1.Legends.Add(legend16);
             this.chart1.Location = new System.Drawing.Point(6, 35);
             this.chart1.Name = "chart1";
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Color = System.Drawing.Color.Red;
-            series12.Legend = "Legend1";
-            series12.Name = "Celkové náklady";
-            this.chart1.Series.Add(series12);
+            series16.BorderWidth = 3;
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series16.Color = System.Drawing.Color.Red;
+            series16.Legend = "Legend1";
+            series16.Name = "Celkové náklady";
+            this.chart1.Series.Add(series16);
             this.chart1.Size = new System.Drawing.Size(980, 304);
             this.chart1.TabIndex = 30;
             this.chart1.Text = "chart1";
-            title12.BackColor = System.Drawing.Color.Transparent;
-            title12.BorderColor = System.Drawing.Color.Transparent;
-            title12.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title12.Name = "Vývoj celkových nákladů";
-            this.chart1.Titles.Add(title12);
+            title16.BackColor = System.Drawing.Color.Transparent;
+            title16.BorderColor = System.Drawing.Color.Transparent;
+            title16.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title16.Name = "Vývoj celkových nákladů";
+            this.chart1.Titles.Add(title16);
             // 
             // tab_endGame
             // 
@@ -650,17 +605,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Celkové tvého náklady týmu: ";
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.richTextBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 46);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(992, 658);
-            this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "Pravidla";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // tb_round
             // 
             this.tb_round.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -678,33 +622,93 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(820, 8);
+            this.label10.Location = new System.Drawing.Point(810, 8);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 37);
             this.label10.TabIndex = 34;
             this.label10.Text = "Kolo:";
             // 
-            // richTextBox1
+            // pictureBox5
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(986, 652);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox5.Image = global::Client.Properties.Resources.truck;
+            this.pictureBox5.Location = new System.Drawing.Point(6, 24);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(177, 97);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 50;
+            this.pictureBox5.TabStop = false;
             // 
-            // lbl_reqOut
+            // pictureBox4
             // 
-            this.lbl_reqOut.AutoSize = true;
-            this.lbl_reqOut.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_reqOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl_reqOut.ForeColor = System.Drawing.Color.Red;
-            this.lbl_reqOut.Location = new System.Drawing.Point(79, 66);
-            this.lbl_reqOut.Name = "lbl_reqOut";
-            this.lbl_reqOut.Size = new System.Drawing.Size(69, 73);
-            this.lbl_reqOut.TabIndex = 43;
-            this.lbl_reqOut.Text = "0";
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox4.Image = global::Client.Properties.Resources.truck;
+            this.pictureBox4.Location = new System.Drawing.Point(6, 24);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(177, 94);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 50;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pictureBox3.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(6, 28);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(64, 66);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 30;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(6, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(69, 36);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(67, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pb_stock
+            // 
+            this.pb_stock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pb_stock.Image = ((System.Drawing.Image)(resources.GetObject("pb_stock.Image")));
+            this.pb_stock.ImageLocation = "";
+            this.pb_stock.Location = new System.Drawing.Point(6, 24);
+            this.pb_stock.Margin = new System.Windows.Forms.Padding(3, 100, 3, 3);
+            this.pb_stock.Name = "pb_stock";
+            this.pb_stock.Size = new System.Drawing.Size(47, 73);
+            this.pb_stock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_stock.TabIndex = 27;
+            this.pb_stock.TabStop = false;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox.BackColor = System.Drawing.Color.Silver;
+            this.pictureBox.Image = global::Client.Properties.Resources.final_back_role4;
+            this.pictureBox.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(992, 650);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 31;
+            this.pictureBox.TabStop = false;
             // 
             // Form1
             // 
@@ -723,34 +727,34 @@
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tab_main.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox_panel.ResumeLayout(false);
             this.groupBox_panel.PerformLayout();
             this.gb_boxIn.ResumeLayout(false);
             this.gb_boxIn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.gb_boxOut.ResumeLayout(false);
             this.gb_boxOut.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.gb_dluh.ResumeLayout(false);
             this.gb_dluh.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.gb_reqIn.ResumeLayout(false);
             this.gb_reqIn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gb_reqOut.ResumeLayout(false);
             this.gb_reqOut.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gb_sklad.ResumeLayout(false);
             this.gb_sklad.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_stock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tab_endGame.ResumeLayout(false);
             this.tab_endGame.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_stock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
