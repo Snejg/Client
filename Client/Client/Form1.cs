@@ -29,6 +29,8 @@ namespace Client
         {
             _PORT = portNumber;
             _IP_ADDRESS = ipAddress;
+            _IP_ADDRESS = "10.0.8.134";
+            // _PORT = 15000;
             InitializeComponent();
 
             //num_reqOut.Controls[0].Hide(); // hide arrows
@@ -642,6 +644,7 @@ namespace Client
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Process.Start("Client.exe", (_PORT + 1).ToString() + " " + _IP_ADDRESS.ToString());
             Environment.Exit(0);            
         }
 
