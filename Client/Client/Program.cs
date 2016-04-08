@@ -16,12 +16,11 @@ namespace Client
         {
             try
             {
-                //int portNumber = int.Parse(args[0]);
-                //string ipAddress = args[1];
-
+                int portNumber = int.Parse(args[0]);
+                string ipAddress = args[1];
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1(15000 , "10.0.8.134"));
+                Application.Run(new Form1(portNumber, ipAddress));
             }
             catch(IndexOutOfRangeException)
             {

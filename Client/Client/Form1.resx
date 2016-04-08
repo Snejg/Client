@@ -118,26 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Jsi součástí dodavatelského řetězce, který se skládá ze čtyř účastníků:
-- Malo-obchodník: posílá láhve koncovému zákazníkovi a požadavek VELKO-OBCHODNÍKOVI.
-- Velko-obchodník: posílá láhve MALO-OBCHODNÍKOVI a požadavek DISTRIBUTOROVI.
-- Distributor: posílá láhve VELKO-OBCHODNÍKOVI a požadavek zpět TOVÁRNÍKOVI.
+    <value>Jsi součástí dodavatelského řetězce, který se skládá ze čtyř rolí. 
 - Továrník: posílá láhve DISTRIBUTOROVI a požadavek na výrobu láhví.
+- Distributor: posílá láhve VELKO-OBCHODNÍKOVI a požadavek zpět TOVÁRNÍKOVI.
+- Velko-obchodník: posílá láhve MALO-OBCHODNÍKOVI a požadavek DISTRIBUTOROVI.
+- Malo-obchodník: posílá láhve KONCOVÉMU ZÁKAZNÍKOVI a požadavek VELKO-OBCHODNÍKOVI.
 
-Cílem hry je dosáhnout co NEJMENŠÍCH nákladů v rámci CELÉHO dodavatelského řetezce (tj. skupiny) BEZ KOMUNIKACE mezi hráči. 
+Je zakázána jakákoliv komunikace mezi hráči !!! 
 
+Cílem hry je dosáhnout co nejmenších nákladů v rámci CELÉHO dodavatelského řetezce (tj. skupiny)
 Pro dosažení cíle je nutné udržovat co nejmenší zásoby na skladě a přitom být schopen plnit příchozí požadavky.
 
 Výpočet nákladů:
 - Náklady se počítají po každém odehraném kole. 
-- Každá bedna, která zůstane na skladě, stojí 50 kč.
+- Každá bedna na skladě stojí 50 kč.
 - Každý nesplněný požadavek stojí 100 kč. 
 
 Důležité si uvědomit:
-- tvoje chování ovlivní výsledek celého týmu
-- pokud ti vznikne nesplněná zakázka, neplatíš pouze jednorázový postih, ale platíš tak dlouho, dokud se nedostaneš opět do plusu.
-- čím dále v řetezci jsi, tím déle potrvá, než se k tobě objednané zboží dostane. 
-- než zboží doputuje ze skladu jednoho účastníka na sklad druhého, trvá to 2 kola! 
+- moje chování ovlivní výsledek celého týmu
+- pokud mi vznikne nesplněná zakázka, neplatím pouze jednorázový postih, ale platím tak dlouho, dokud se nedostanu opět do plusu.
+- čím dále v řetezci jsem, tím déle potrvá, než se ke mě objednané zboží dostane. 
+- než zboží doputuje ze skladu role A na sklad role B, trvá to 2 kola! 
 
 Hra bude ukončena mezi 20. a 50. kolem. </value>
   </data>
