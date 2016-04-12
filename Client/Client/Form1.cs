@@ -146,8 +146,8 @@ namespace Client
             {
                 waitingLoop(); // start timer
 
-                this.lbl_status.Invoke(new MethodInvoker(delegate ()
-                { lbl_status.Text = "Čekáš na ostatní hráče"; }));
+                //this.lbl_status.Invoke(new MethodInvoker(delegate ()
+                //{ lbl_status.Text = "Čekáš na ostatní hráče"; }));
 
                 //groupBox_panel.Visible = false;
 
@@ -160,8 +160,8 @@ namespace Client
                 updateRound();
                 updateScore();
 
-                this.lbl_status.Invoke(new MethodInvoker(delegate ()
-                { lbl_status.Text = "Nové kolo"; }));
+                //this.lbl_status.Invoke(new MethodInvoker(delegate ()
+                //{ lbl_status.Text = "Nové kolo"; }));
                 showControls();
                 /*
                 this.num_in_req_box.Invoke(new MethodInvoker(delegate ()
@@ -344,10 +344,10 @@ namespace Client
                     { pictureBox.Image = global::Client.Properties.Resources.final_back_role1; }));
 
                     this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
-                    { groupBox_panel.Location = new System.Drawing.Point(234, 226); }));
+                    { groupBox_panel.Location = new System.Drawing.Point(234, 224); }));
 
                     this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
-                    { groupBox_panel.Size = new System.Drawing.Size (682, 409); }));
+                    { groupBox_panel.Size = new System.Drawing.Size (681, 411); }));
 
                     break;
 
@@ -362,10 +362,10 @@ namespace Client
                     { pictureBox.Image = global::Client.Properties.Resources.final_back_role21; }));
 
                     this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
-                    { groupBox_panel.Location = new System.Drawing.Point(15, 234); }));
+                    { groupBox_panel.Location = new System.Drawing.Point(12, 234); }));
 
                     this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
-                    { groupBox_panel.Size = new System.Drawing.Size(678, 407); }));
+                    { groupBox_panel.Size = new System.Drawing.Size(681, 411); }));
                     break;
 
                 case 2:
@@ -379,10 +379,10 @@ namespace Client
                     { pictureBox.Image = global::Client.Properties.Resources.final_back_role3; }));
 
                     this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
-                    { groupBox_panel.Location = new System.Drawing.Point(297, 6); }));
+                    { groupBox_panel.Location = new System.Drawing.Point(298, 2); }));
 
                     this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
-                    { groupBox_panel.Size = new System.Drawing.Size(678, 407); }));
+                    { groupBox_panel.Size = new System.Drawing.Size(681, 411); }));
                     break;
 
                 case 3:
@@ -396,10 +396,10 @@ namespace Client
                     { pictureBox.Image = global::Client.Properties.Resources.final_back_role4; }));
 
                     this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
-                    { groupBox_panel.Location = new System.Drawing.Point(81, 6); }));
+                    { groupBox_panel.Location = new System.Drawing.Point(82, 2); }));
 
                     this.groupBox_panel.Invoke(new MethodInvoker(delegate ()
-                    { groupBox_panel.Size = new System.Drawing.Size(678, 407); }));
+                    { groupBox_panel.Size = new System.Drawing.Size(681, 411); }));
 
                     break;
                 default:
