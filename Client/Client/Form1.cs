@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace Client
 {
