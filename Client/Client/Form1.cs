@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Client
@@ -83,7 +84,7 @@ namespace Client
                 //int customerRequest = (int)num_in_req_box.Value;
                 int customerRequest = (int)stringToInt(lbl_reqIn.Text);
                 updateCLientStockAndUnfulfilledOrders(un_order, stock);
-                add2CostSum();
+                //add2CostSum();
                 add2Chart(customerRequest);
                 _roundNumber++;
                 updateScore();
@@ -92,13 +93,20 @@ namespace Client
                 Message m = new Message(_ROLE, (Int32)stringToInt(lbl_boxOut.Text), (Int32)stringToInt(lbl_reqOut.Text), _stock, _unfulfilledOrders, -500);
                 byte[] buffer = m.getMessageByteArray();
                 // vymazani vsech vstupnich poli (aby doslo ke zmene -> zavola se metoda)
+                
                 resetAllCells();
-                hideControls();
+                //hideControls();
+                
                 //posladni dat serveru
                 _clientSocket.Send(buffer, 0, buffer.Length, SocketFlags.None);
+                this.label2.Invoke(new MethodInvoker(delegate ()
+                { label2.Text = "odeslano"; }));
             }
             catch(Exception e) // nastala chyba -> udelej log
             {
+                this.label1.Invoke(new MethodInvoker(delegate ()
+                { label1.Text = "chyba pri odeslani"; }));
+
                 if (!_clientSocket.Connected)
                 {
                     Console.WriteLine("Vypadlo internetove spojeni");
@@ -140,8 +148,17 @@ namespace Client
             Int32 reqInOut = BitConverter.ToInt32(data, 8);
             Int32 roundCode = BitConverter.ToInt32(data, 12);
 
+            this.label3.Invoke(new MethodInvoker(delegate ()
+            { label3.Text = "kod - " + roundCode.ToString(); }));
+
             if (roundCode == -300) // start waiting
             {
+                //resetAllCells();
+                hideControls();
+                add2CostSum();
+
+                this.label2.Invoke(new MethodInvoker(delegate ()
+                { label2.Text = "data o cekani prijata"; }));
                 waitingLoop(); // start timer
 
                 //this.lbl_status.Invoke(new MethodInvoker(delegate ()
@@ -153,7 +170,10 @@ namespace Client
             else if (roundCode == -200) // new round
             {
                 stopWaiting(); // stop timer 
-                setRole(role);            
+                if (_ROLE < 0)
+                {
+                    setRole(role);
+                }
                 EnableControls();
                 updateRound();
                 updateScore();
@@ -187,6 +207,15 @@ namespace Client
 
                 this.tb_comparison.Invoke(new MethodInvoker(delegate ()
                 { tb_comparison.Text = boxInOut.ToString() + " Kč"; }));
+            }
+
+            if (waitingTimer.Enabled == true)
+            {
+                label1.Text = "ANO";
+            }
+            else
+            {
+                label1.Text = "NE";
             }
         }
 
@@ -238,6 +267,8 @@ namespace Client
             { btn_decrease.Visible = true; }));
             */
 
+            Thread.Sleep(2000); // thread collector
+
             this.gb_boxIn.Invoke(new MethodInvoker(delegate ()
             { gb_boxIn.Visible = true; }));
 
@@ -247,9 +278,6 @@ namespace Client
             this.gb_reqIn.Invoke(new MethodInvoker(delegate ()
             { gb_reqIn.Visible = true; }));
 
-            this.gb_reqOut.Invoke(new MethodInvoker(delegate ()
-            { gb_reqOut.Visible = true; }));
-
             this.gb_sklad.Invoke(new MethodInvoker(delegate ()
             { gb_sklad.Visible = true; }));
 
@@ -258,6 +286,19 @@ namespace Client
 
             this.lbl_status.Invoke(new MethodInvoker(delegate ()
             { lbl_status.Visible = false; }));
+
+            //Thread.Sleep(2000); // thread collector
+
+            this.gb_reqOut.Invoke(new MethodInvoker(delegate ()
+            { gb_reqOut.Visible = true; }));
+
+            //this.btn_send.Invoke(new MethodInvoker(delegate ()
+            //{ btn_send.Visible = false; }));
+
+            //Thread.Sleep(2000); // thread collector
+
+            //this.btn_send.Invoke(new MethodInvoker(delegate ()
+            //{ btn_send.Visible = true; }));
 
         }
 
@@ -271,14 +312,24 @@ namespace Client
 
         private void waitingLoop()
         {
-            waitingTimer.Enabled = true;
-            waitingTimer.Start();
+            if (waitingTimer.Enabled == false)
+            {
+                waitingTimer.Enabled = true;
+                //waitingTimer.Start();
+            }
         }
 
         private void stopWaiting()
         {
-            waitingTimer.Stop();
-            waitingTimer.Enabled = false;            
+
+            if ( waitingTimer.Enabled == true)
+            {
+                waitingTimer.Enabled = false;
+            }
+
+            //waitingTimer.Stop();
+
+            //waitingTimer.Enabled = false;            
         }
 
         private void disableControls()
@@ -442,6 +493,7 @@ namespace Client
 
             if (stringToInt(lbl_reqOut.Text) != 0 && checkCorrectMove())
             {
+                //hideControls();
                 SendRequest();
                 disableControls();
                 ReceiveResponse();
@@ -606,16 +658,16 @@ namespace Client
             Int32 boxReqOut;
             Int32 stock;
             Int32 u_orders;
-            Int32 roundCode;
+            Int32 mess_Code;
 
-            public Message(Int32 p_role, Int32 p_boxOut, Int32 p_boxReqOut, Int32 p_stock, Int32 p_orders, Int32 p_roudCode)
+            public Message(Int32 p_role, Int32 p_boxOut, Int32 p_boxReqOut, Int32 p_stock, Int32 p_orders, Int32 p_messCode)
             {
                 role = p_role;
                 boxOut = p_boxOut;
                 boxReqOut = p_boxReqOut;
                 stock = p_stock;
                 u_orders = p_orders;
-                roundCode = p_roudCode;
+                mess_Code = p_messCode;
             }
 
             public byte[] getMessageByteArray()
@@ -625,7 +677,7 @@ namespace Client
                 byte[] data3 = BitConverter.GetBytes(boxReqOut);
                 byte[] data4 = BitConverter.GetBytes(stock);
                 byte[] data5 = BitConverter.GetBytes(u_orders);
-                byte[] data6 = BitConverter.GetBytes(roundCode);
+                byte[] data6 = BitConverter.GetBytes(mess_Code);
 
                 byte[] data = new byte[data1.Length + data2.Length + data3.Length + data3.Length + data4.Length + data5.Length + data6.Length];
                 Buffer.BlockCopy(data1, 0, data, 0, data1.Length);

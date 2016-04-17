@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.btn_exit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_score = new System.Windows.Forms.TextBox();
@@ -82,6 +82,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tb_round = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tab_main.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -515,7 +518,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 46);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(976, 620);
+            this.tabPage2.Size = new System.Drawing.Size(992, 658);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vývoj nákladů";
             // 
@@ -537,33 +540,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart2.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart2.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea11.AxisX.Interval = 2D;
-            chartArea11.AxisX.LineWidth = 2;
-            chartArea11.AxisX.Maximum = 50D;
-            chartArea11.AxisX.Minimum = 0D;
-            chartArea11.AxisY.LineWidth = 2;
-            chartArea11.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea11);
+            chartArea3.AxisX.Interval = 2D;
+            chartArea3.AxisX.LineWidth = 2;
+            chartArea3.AxisX.Maximum = 50D;
+            chartArea3.AxisX.Minimum = 0D;
+            chartArea3.AxisY.LineWidth = 2;
+            chartArea3.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea3);
             this.chart2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend11.Name = "Legend1";
-            this.chart2.Legends.Add(legend11);
+            legend3.Name = "Legend1";
+            this.chart2.Legends.Add(legend3);
             this.chart2.Location = new System.Drawing.Point(23, 345);
             this.chart2.Name = "chart2";
-            series11.BorderWidth = 3;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Color = System.Drawing.Color.Blue;
-            series11.Legend = "Legend1";
-            series11.Name = "Vývoj požadavků";
-            this.chart2.Series.Add(series11);
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Blue;
+            series3.Legend = "Legend1";
+            series3.Name = "Vývoj požadavků";
+            this.chart2.Series.Add(series3);
             this.chart2.Size = new System.Drawing.Size(944, 246);
             this.chart2.TabIndex = 31;
             this.chart2.Text = "chart2";
-            title11.BackColor = System.Drawing.Color.Transparent;
-            title11.BorderColor = System.Drawing.Color.Transparent;
-            title11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title11.Name = "Vývoj celkových nákladů";
-            this.chart2.Titles.Add(title11);
+            title3.BackColor = System.Drawing.Color.Transparent;
+            title3.BorderColor = System.Drawing.Color.Transparent;
+            title3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title3.Name = "Vývoj celkových nákladů";
+            this.chart2.Titles.Add(title3);
             // 
             // chart1
             // 
@@ -572,33 +575,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart1.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea12.AxisX.Interval = 2D;
-            chartArea12.AxisX.LineWidth = 2;
-            chartArea12.AxisX.Maximum = 50D;
-            chartArea12.AxisX.Minimum = 0D;
-            chartArea12.AxisY.LineWidth = 2;
-            chartArea12.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea12);
+            chartArea4.AxisX.Interval = 2D;
+            chartArea4.AxisX.LineWidth = 2;
+            chartArea4.AxisX.Maximum = 50D;
+            chartArea4.AxisX.Minimum = 0D;
+            chartArea4.AxisY.LineWidth = 2;
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend12.Name = "Legend1";
-            this.chart1.Legends.Add(legend12);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(6, 35);
             this.chart1.Name = "chart1";
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Color = System.Drawing.Color.Red;
-            series12.Legend = "Legend1";
-            series12.Name = "Celkové náklady";
-            this.chart1.Series.Add(series12);
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Red;
+            series4.Legend = "Legend1";
+            series4.Name = "Celkové náklady";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(964, 266);
             this.chart1.TabIndex = 30;
             this.chart1.Text = "chart1";
-            title12.BackColor = System.Drawing.Color.Transparent;
-            title12.BorderColor = System.Drawing.Color.Transparent;
-            title12.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title12.Name = "Vývoj celkových nákladů";
-            this.chart1.Titles.Add(title12);
+            title4.BackColor = System.Drawing.Color.Transparent;
+            title4.BorderColor = System.Drawing.Color.Transparent;
+            title4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title4.Name = "Vývoj celkových nákladů";
+            this.chart1.Titles.Add(title4);
             // 
             // tab_endGame
             // 
@@ -612,7 +615,7 @@
             this.tab_endGame.Location = new System.Drawing.Point(4, 46);
             this.tab_endGame.Name = "tab_endGame";
             this.tab_endGame.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_endGame.Size = new System.Drawing.Size(976, 620);
+            this.tab_endGame.Size = new System.Drawing.Size(992, 658);
             this.tab_endGame.TabIndex = 2;
             this.tab_endGame.Text = "Výsledek hry";
             this.tab_endGame.UseVisualStyleBackColor = true;
@@ -692,12 +695,43 @@
             this.label10.TabIndex = 34;
             this.label10.Text = "Kolo:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(30, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(145, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(321, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_round);
             this.Controls.Add(this.tab_main);
             this.Controls.Add(this.label10);
@@ -707,7 +741,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tab_main.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -789,6 +822,9 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label lbl_reqOut;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
