@@ -44,8 +44,9 @@ namespace Client
             {
                 try
                 {
-                    _clientSocket.Connect(IPAddress.Loopback, _PORT);
-                    //_clientSocket.Connect(_IP_ADDRESS, _PORT);
+                    //_clientSocket.Connect(IPAddress.Loopback, _PORT);
+                    _clientSocket.Connect(_IP_ADDRESS, _PORT);
+                    //_clientSocket.Connect("192.168.1.35", _PORT);
                 }
                 catch (SocketException)
                 {
@@ -314,8 +315,9 @@ namespace Client
         {
             if (waitingTimer.Enabled == false)
             {
-                waitingTimer.Enabled = true;
-                //waitingTimer.Start();
+                // waitingTimer.Enabled = true;
+                waitingTimer.Stop();
+                waitingTimer.Start();
             }
         }
 
@@ -324,12 +326,9 @@ namespace Client
 
             if ( waitingTimer.Enabled == true)
             {
-                waitingTimer.Enabled = false;
-            }
-
-            //waitingTimer.Stop();
-
-            //waitingTimer.Enabled = false;            
+                //waitingTimer.Enabled = false;
+                waitingTimer.Stop();
+            }       
         }
 
         private void disableControls()
@@ -494,8 +493,9 @@ namespace Client
             if (stringToInt(lbl_reqOut.Text) != 0 && checkCorrectMove())
             {
                 //hideControls();
+                //waitingTimer.Enabled = true;
                 SendRequest();
-                disableControls();
+                disableControls(); // nastaveni na 1 - predvolba
                 ReceiveResponse();
             }
 

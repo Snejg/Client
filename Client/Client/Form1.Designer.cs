@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.btn_exit = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_score = new System.Windows.Forms.TextBox();
@@ -124,7 +124,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(501, 8);
+            this.label9.Location = new System.Drawing.Point(539, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(142, 37);
             this.label9.TabIndex = 32;
@@ -135,7 +135,7 @@
             this.tb_score.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_score.Enabled = false;
             this.tb_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tb_score.Location = new System.Drawing.Point(649, 12);
+            this.tb_score.Location = new System.Drawing.Point(687, 13);
             this.tb_score.Name = "tb_score";
             this.tb_score.ReadOnly = true;
             this.tb_score.Size = new System.Drawing.Size(104, 29);
@@ -540,33 +540,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart2.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart2.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea3.AxisX.Interval = 2D;
-            chartArea3.AxisX.LineWidth = 2;
-            chartArea3.AxisX.Maximum = 50D;
-            chartArea3.AxisX.Minimum = 0D;
-            chartArea3.AxisY.LineWidth = 2;
-            chartArea3.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea3);
+            chartArea7.AxisX.Interval = 2D;
+            chartArea7.AxisX.LineWidth = 2;
+            chartArea7.AxisX.Maximum = 50D;
+            chartArea7.AxisX.Minimum = 0D;
+            chartArea7.AxisY.LineWidth = 2;
+            chartArea7.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea7);
             this.chart2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend3.Name = "Legend1";
-            this.chart2.Legends.Add(legend3);
+            legend7.Name = "Legend1";
+            this.chart2.Legends.Add(legend7);
             this.chart2.Location = new System.Drawing.Point(23, 345);
             this.chart2.Name = "chart2";
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Color = System.Drawing.Color.Blue;
-            series3.Legend = "Legend1";
-            series3.Name = "Vývoj požadavků";
-            this.chart2.Series.Add(series3);
+            series7.BorderWidth = 3;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Color = System.Drawing.Color.Blue;
+            series7.Legend = "Legend1";
+            series7.Name = "Vývoj požadavků";
+            this.chart2.Series.Add(series7);
             this.chart2.Size = new System.Drawing.Size(944, 246);
             this.chart2.TabIndex = 31;
             this.chart2.Text = "chart2";
-            title3.BackColor = System.Drawing.Color.Transparent;
-            title3.BorderColor = System.Drawing.Color.Transparent;
-            title3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title3.Name = "Vývoj celkových nákladů";
-            this.chart2.Titles.Add(title3);
+            title7.BackColor = System.Drawing.Color.Transparent;
+            title7.BorderColor = System.Drawing.Color.Transparent;
+            title7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title7.Name = "Vývoj celkových nákladů";
+            this.chart2.Titles.Add(title7);
             // 
             // chart1
             // 
@@ -575,33 +575,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.chart1.BorderlineColor = System.Drawing.Color.MediumSeaGreen;
-            chartArea4.AxisX.Interval = 2D;
-            chartArea4.AxisX.LineWidth = 2;
-            chartArea4.AxisX.Maximum = 50D;
-            chartArea4.AxisX.Minimum = 0D;
-            chartArea4.AxisY.LineWidth = 2;
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
+            chartArea8.AxisX.Interval = 2D;
+            chartArea8.AxisX.LineWidth = 2;
+            chartArea8.AxisX.Maximum = 50D;
+            chartArea8.AxisX.Minimum = 0D;
+            chartArea8.AxisY.LineWidth = 2;
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
             this.chart1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            legend8.Name = "Legend1";
+            this.chart1.Legends.Add(legend8);
             this.chart1.Location = new System.Drawing.Point(6, 35);
             this.chart1.Name = "chart1";
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Color = System.Drawing.Color.Red;
-            series4.Legend = "Legend1";
-            series4.Name = "Celkové náklady";
-            this.chart1.Series.Add(series4);
+            series8.BorderWidth = 3;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Color = System.Drawing.Color.Red;
+            series8.Legend = "Legend1";
+            series8.Name = "Celkové náklady";
+            this.chart1.Series.Add(series8);
             this.chart1.Size = new System.Drawing.Size(964, 266);
             this.chart1.TabIndex = 30;
             this.chart1.Text = "chart1";
-            title4.BackColor = System.Drawing.Color.Transparent;
-            title4.BorderColor = System.Drawing.Color.Transparent;
-            title4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            title4.Name = "Vývoj celkových nákladů";
-            this.chart1.Titles.Add(title4);
+            title8.BackColor = System.Drawing.Color.Transparent;
+            title8.BorderColor = System.Drawing.Color.Transparent;
+            title8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            title8.Name = "Vývoj celkových nákladů";
+            this.chart1.Titles.Add(title8);
             // 
             // tab_endGame
             // 
@@ -677,7 +677,7 @@
             this.tb_round.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_round.Enabled = false;
             this.tb_round.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tb_round.Location = new System.Drawing.Point(906, 10);
+            this.tb_round.Location = new System.Drawing.Point(901, 12);
             this.tb_round.Name = "tb_round";
             this.tb_round.ReadOnly = true;
             this.tb_round.Size = new System.Drawing.Size(104, 29);
@@ -689,7 +689,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(810, 8);
+            this.label10.Location = new System.Drawing.Point(810, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 37);
             this.label10.TabIndex = 34;
@@ -704,6 +704,7 @@
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 35;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -713,6 +714,7 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 36;
             this.label2.Text = "label2";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -722,6 +724,7 @@
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 37;
             this.label3.Text = "label3";
+            this.label3.Visible = false;
             // 
             // Form1
             // 
@@ -741,6 +744,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tab_main.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
